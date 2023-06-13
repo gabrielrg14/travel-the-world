@@ -1,0 +1,21 @@
+{
+  "name": "Travel the World",
+  "short_name": "Travel the World",
+  "icons": [
+    {
+      "src": "/img/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#06092B",
+  "description": "A site to show pinned places that have already been visited or those that you must visit someday.",
+  "display": "fullscreen",
+  "start_url": "/",
+  "theme_color": "#06092B"
+}
