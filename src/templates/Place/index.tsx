@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import LinkWrapper from 'components/LinkWrapper'
 import { CloseOutline } from '@styled-icons/evaicons-outline'
 
@@ -18,7 +20,7 @@ export type PlaceTemplateProps = {
       latitude: number
       longitude: number
     }
-    description: {
+    description?: {
       html: string
     }
     gallery: ImageProps[]
@@ -37,12 +39,19 @@ const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
           <S.Heading>{place.name}</S.Heading>
 
           <S.Body
-            dangerouslySetInnerHTML={{ __html: place.description.html }}
+            dangerouslySetInnerHTML={{ __html: place.description?.html || '' }}
           />
 
           <S.Gallery>
             {place.gallery?.map((image, index) => (
-              <img key={`image-${index}`} src={image.url} alt={place.name} />
+              <Image
+                key={`image-${index}`}
+                src={image.url}
+                width={800}
+                height={500}
+                quality={75}
+                alt={place.name}
+              />
             ))}
           </S.Gallery>
         </S.Container>
