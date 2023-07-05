@@ -1,6 +1,9 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
+import { DefaultSeo } from 'next-seo'
+import SEO from '../../next-seo.config'
+
 import GlobalStyles from 'styles/globlal'
 
 import NextNProgress from 'nextjs-progressbar'
@@ -9,7 +12,6 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Travel the World</title>
         <link rel="shortcut icon" href="/img/icon-512.png" />
         <link rel="apple-touch-icon" href="/img/icon-512.png" />
         <link rel="manifest" href="/manifest.json" />
@@ -20,11 +22,8 @@ function App({ Component, pageProps }: AppProps) {
           crossOrigin=""
         />
         <meta name="theme-color" content="#06092B" />
-        <meta
-          name="description"
-          content="A site to show pinned places that have already been visited or those that you must visit someday."
-        />
       </Head>
+      <DefaultSeo {...SEO} />
       <GlobalStyles />
       <NextNProgress color="#e20e8d" />
       <Component {...pageProps} />

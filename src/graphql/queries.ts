@@ -21,6 +21,7 @@ export const GET_PAGE_BY_SLUG = gql`
       heading
       body {
         html
+        text
       }
     }
   }
@@ -60,6 +61,7 @@ export const GET_PLACE_BY_SLUG = gql`
       }
       description {
         html
+        text
       }
       gallery {
         url
