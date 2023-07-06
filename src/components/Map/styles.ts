@@ -7,8 +7,4 @@ export const MapWrapper = styled.div`
   .leaflet-container {
     background-color: var(--background);
   }
-
-  .leaflet-marker-pane {
-    color: #000;
-  }
 `
