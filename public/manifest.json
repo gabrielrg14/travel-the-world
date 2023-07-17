@@ -13,9 +13,9 @@
       "sizes": "512x512"
     }
   ],
-  "background_color": "#06092B",
+  "background_color": "rgb(22, 24, 23)",
   "description": "A site to show pinned places that have already been visited or those that you must visit someday.",
   "display": "fullscreen",
   "start_url": "/",
-  "theme_color": "#06092B"
+  "theme_color": "#18a330"
 }

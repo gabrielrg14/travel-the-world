@@ -21,11 +21,15 @@ function App({ Component, pageProps }: AppProps) {
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossOrigin=""
         />
-        <meta name="theme-color" content="#06092B" />
+        <meta name="theme-color" content="#18a330" />
       </Head>
       <DefaultSeo {...SEO} />
       <GlobalStyles />
-      <NextNProgress color="#e20e8d" />
+      <NextNProgress
+        color="var(--highlight)"
+        height={5}
+        options={{ showSpinner: false }}
+      />
       <Component {...pageProps} />
     </>
   )
