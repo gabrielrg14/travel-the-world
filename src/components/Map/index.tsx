@@ -44,7 +44,7 @@ const MapConsumer = () => {
 const markerIcon = new L.Icon({
   iconUrl: 'img/marker-128.png',
   iconSize: [40, 40],
-  iconAnchor: [20, 45],
+  iconAnchor: [20, 40],
   popupAnchor: [0, -40]
 })
 

@@ -15,8 +15,8 @@ export const Legend = styled.div`
   z-index: 1100;
 
   a,
-  p {
-    font-size: 1.3rem;
+  small {
+    font-size: 1.2rem;
     line-height: 1.3;
   }
 `

@@ -30,10 +30,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!place) return { notFound: true }
 
   return {
-    revalidate: 300, // 5 minutes
-    props: {
-      place
-    }
+    revalidate: 60,
+    props: { place }
   }
 }
 

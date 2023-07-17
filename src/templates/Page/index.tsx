@@ -1,8 +1,8 @@
 import { NextSeo } from 'next-seo'
-import LinkWrapper from 'components/LinkWrapper'
-import { CloseOutline } from '@styled-icons/evaicons-outline'
 
 import * as S from './styles'
+import LinkWrapper from 'components/LinkWrapper'
+import { CloseOutline } from '@styled-icons/evaicons-outline'
 
 export type PageTemplateProps = {
   heading: string
@@ -14,7 +14,16 @@ export type PageTemplateProps = {
 
 const PageTemplate = ({ heading, body }: PageTemplateProps) => (
   <>
-    <NextSeo title={`${heading} - Travel the World`} description={body.text} />
+    <NextSeo
+      title={`${heading} - Travel the World`}
+      description={body.text}
+      additionalMetaTags={[
+        {
+          name: 'keywords',
+          content: `${heading}`
+        }
+      ]}
+    />
 
     <S.Content>
       <LinkWrapper href="/">

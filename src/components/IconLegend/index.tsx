@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 const IconLegend = () => (
   <S.Legend>
-    <p>
-      Icons created by{' '}
+    <small>
+      The icons on the map were created by{' '}
       <Link
         href="https://www.flaticon.com/authors/juicy-fish"
         title="juicy_fish icons"
@@ -16,7 +16,7 @@ const IconLegend = () => (
       <Link href="https://www.flaticon.com/" title="flaticon" target="_blank">
         Flaticon
       </Link>
-    </p>
+    </small>
   </S.Legend>
 )
 

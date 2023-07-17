@@ -4,14 +4,14 @@ import client from 'graphql/client'
 import { GetPlacesQuery } from 'graphql/generated/graphql'
 import { GET_PLACES } from 'graphql/queries'
 
-import HomeTemplate from 'templates/Home'
 import { MapProps } from 'components/Map'
+import HomeTemplate from 'templates/Home'
 
 export const getStaticProps: GetStaticProps = async () => {
   const { places } = await client.request<GetPlacesQuery>(GET_PLACES)
 
   return {
-    revalidate: 300, // 5 minutes
+    revalidate: 60, // 1 minute
     props: { places }
   }
 }

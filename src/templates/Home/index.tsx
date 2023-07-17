@@ -15,6 +15,13 @@ const HomeTemplate = ({ places }: MapProps) => (
     <NextSeo
       title={title}
       description="A site to show pinned places that have already been visited or those that you must visit someday."
+      additionalMetaTags={[
+        {
+          name: 'keywords',
+          content:
+            'Place, Places, Pinned, Travel, World, Travel the world, Visit, Visited'
+        }
+      ]}
       openGraph={{
         images: [
           {
@@ -30,7 +37,9 @@ const HomeTemplate = ({ places }: MapProps) => (
     <LinkWrapper href="/about">
       <InfoOutline size={32} aria-label="About" />
     </LinkWrapper>
+
     <Map places={places} />
+
     <IconLegend />
   </>
 )

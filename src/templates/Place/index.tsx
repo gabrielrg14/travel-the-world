@@ -1,10 +1,9 @@
-import Image from 'next/image'
-
 import { NextSeo } from 'next-seo'
-import LinkWrapper from 'components/LinkWrapper'
-import { CloseOutline } from '@styled-icons/evaicons-outline'
 
 import * as S from './styles'
+import Image from 'next/image'
+import LinkWrapper from 'components/LinkWrapper'
+import { CloseOutline } from '@styled-icons/evaicons-outline'
 
 type ImageProps = {
   url: string
@@ -36,8 +35,14 @@ const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
         title={`${place.name} - Travel the World`}
         description={
           place.description?.text ||
-          `Discover a little more about ${place.name}`
+          `Discover a little more about ${place.name}.`
         }
+        additionalMetaTags={[
+          {
+            name: 'keywords',
+            content: `${place.name}, ${place.slug}`
+          }
+        ]}
         openGraph={{
           images: [
             {
