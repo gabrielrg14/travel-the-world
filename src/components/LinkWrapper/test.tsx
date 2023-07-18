@@ -4,7 +4,11 @@ import LinkWrapper from '.'
 
 describe('<LinkWrapper />', () => {
   it('should render link and children', () => {
-    render(<LinkWrapper href="/my-link">Anything</LinkWrapper>)
+    render(
+      <LinkWrapper href="/my-link" ariaLabel="anything">
+        Anything
+      </LinkWrapper>
+    )
 
     const children = screen.getByRole('link', { name: /anything/i })
 

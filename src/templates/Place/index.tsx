@@ -55,8 +55,8 @@ const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
         }}
       />
 
-      <LinkWrapper href="/">
-        <CloseOutline size={32} aria-label="Go back to map" />
+      <LinkWrapper href="/" ariaLabel="Go back to map">
+        <CloseOutline size={32} />
       </LinkWrapper>
 
       <S.Wrapper>
@@ -72,8 +72,8 @@ const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
               <Image
                 key={`image-${index}`}
                 src={image.url}
-                width={800}
-                height={500}
+                width={image.width}
+                height={image.height}
                 quality={75}
                 alt={place.name}
               />

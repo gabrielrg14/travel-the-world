@@ -34,8 +34,8 @@ const HomeTemplate = ({ places }: MapProps) => (
       }}
     />
 
-    <LinkWrapper href="/about">
-      <InfoOutline size={32} aria-label="About" />
+    <LinkWrapper href="/about" ariaLabel="Go to About page">
+      <InfoOutline size={32} />
     </LinkWrapper>
 
     <Map places={places} />
