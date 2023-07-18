@@ -20,15 +20,13 @@ const config: DefaultSeoProps = {
     {
       rel: 'manifest',
       href: '/manifest.json'
-    },
-    {
-      rel: 'stylesheet',
-      href: 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
-      integrity: 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=',
-      crossOrigin: ''
     }
   ],
   additionalMetaTags: [
+    {
+      name: 'google-site-verification',
+      content: '11r8K6MLmUAgq8eTWLXk49GhEiZuybZx1h8kIyO6PX8'
+    },
     {
       name: 'google',
       content: 'notranslate'
