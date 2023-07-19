@@ -4,3 +4,6 @@ Allow: /
 
 # Host
 Host: https://travel-the-world-gabrielrg.vercel.app/
+
+# Sitemaps
+Sitemap: https://travel-the-world-gabrielrg.vercel.app/sitemap.xml
