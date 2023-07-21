@@ -1,8 +1,5 @@
 import { DefaultSeoProps } from 'next-seo'
 
-const siteUrl =
-  process.env.SITE_URL || 'https://travel-the-world-gabrielrg.vercel.app/'
-
 const config: DefaultSeoProps = {
   defaultTitle: 'Travel the World',
   themeColor: '#18a330',
@@ -35,7 +32,7 @@ const config: DefaultSeoProps = {
   openGraph: {
     type: 'website',
     locale: 'en',
-    url: siteUrl,
+    url: process.env.NEXT_PUBLIC_SITE_URL,
     siteName: 'Travel the World'
   }
 }

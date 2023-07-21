@@ -5,7 +5,7 @@ import { GetPlacesQuery } from 'graphql/generated/graphql'
 import { GET_PLACES } from 'graphql/queries'
 
 export async function GET() {
-  const locBase = 'https://travel-the-world-gabrielrg.vercel.app'
+  const locBase = process.env.NEXT_PUBLIC_SITE_URL
   const lastmod = new Date().toISOString()
   const changefreq = 'daily'
   const priority = 0.7
@@ -21,7 +21,7 @@ export async function GET() {
 
   fields.push(
     {
-      loc: locBase,
+      loc: `${locBase}`,
       lastmod,
       changefreq,
       priority

@@ -27,18 +27,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     revalidate: 60,
     props: {
+      slug: page.slug,
       heading: page.heading,
       body: page.body
     }
   }
 }
 
-const Page = ({ heading, body }: PageTemplateProps) => {
+const Page = ({ slug, heading, body }: PageTemplateProps) => {
   const router = useRouter()
 
   if (router.isFallback) return null
 
-  return <PageTemplate heading={heading} body={body} />
+  return <PageTemplate slug={slug} heading={heading} body={body} />
 }
 
 export default Page

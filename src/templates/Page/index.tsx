@@ -5,6 +5,7 @@ import LinkWrapper from 'components/LinkWrapper'
 import { CloseOutline } from '@styled-icons/evaicons-outline'
 
 export type PageTemplateProps = {
+  slug: string
   heading: string
   body: {
     html: string
@@ -12,7 +13,7 @@ export type PageTemplateProps = {
   }
 }
 
-const PageTemplate = ({ heading, body }: PageTemplateProps) => (
+const PageTemplate = ({ slug, heading, body }: PageTemplateProps) => (
   <>
     <NextSeo
       title={`${heading} - Travel the World`}
@@ -23,6 +24,7 @@ const PageTemplate = ({ heading, body }: PageTemplateProps) => (
           content: `${heading}`
         }
       ]}
+      canonical={`${process.env.NEXT_PUBLIC_SITE_URL}/${slug}`}
     />
 
     <S.Content>

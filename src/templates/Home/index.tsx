@@ -25,13 +25,14 @@ const HomeTemplate = ({ places }: MapProps) => (
       openGraph={{
         images: [
           {
-            url: 'https://travel-the-world-gabrielrg.vercel.app/img/cover.png',
+            url: `${process.env.NEXT_PUBLIC_SITE_URL}/img/cover.png`,
             width: 1280,
             height: 720,
             alt: title
           }
         ]
       }}
+      canonical={process.env.NEXT_PUBLIC_SITE_URL}
     />
 
     <LinkWrapper href="/about" ariaLabel="Go to About page">

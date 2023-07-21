@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://travel-the-world-gabrielrg.vercel.app/
+Host: https://travels.gabrielrapucci.com.br
 
 # Sitemaps
-Sitemap: https://travel-the-world-gabrielrg.vercel.app/sitemap.xml
+Sitemap: https://travels.gabrielrapucci.com.br/sitemap.xml
