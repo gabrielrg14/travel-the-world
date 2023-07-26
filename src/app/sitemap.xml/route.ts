@@ -21,7 +21,7 @@ export async function GET() {
 
   fields.push(
     {
-      loc: `${locBase}`,
+      loc: `${locBase}/`,
       lastmod,
       changefreq,
       priority

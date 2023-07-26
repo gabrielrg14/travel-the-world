@@ -32,7 +32,7 @@ const config: DefaultSeoProps = {
   openGraph: {
     type: 'website',
     locale: 'en',
-    url: process.env.NEXT_PUBLIC_SITE_URL,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/`,
     siteName: 'Travel the World'
   }
 }

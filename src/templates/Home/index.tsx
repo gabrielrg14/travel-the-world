@@ -32,7 +32,7 @@ const HomeTemplate = ({ places }: MapProps) => (
           }
         ]
       }}
-      canonical={process.env.NEXT_PUBLIC_SITE_URL}
+      canonical={`${process.env.NEXT_PUBLIC_SITE_URL}/`}
     />
 
     <LinkWrapper href="/about" ariaLabel="Go to About page">
