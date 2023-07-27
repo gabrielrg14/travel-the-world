@@ -8,7 +8,9 @@ import { MapProps } from 'components/Map'
 import HomeTemplate from 'templates/Home'
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { places } = await client.request<GetPlacesQuery>(GET_PLACES)
+  const { places } = await client.request<GetPlacesQuery>(GET_PLACES, {
+    first: 100
+  })
 
   return {
     revalidate: 60, // 1 minute

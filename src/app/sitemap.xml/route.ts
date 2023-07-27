@@ -10,7 +10,9 @@ export async function GET() {
   const changefreq = 'daily'
   const priority = 0.7
 
-  const { places } = await client.request<GetPlacesQuery>(GET_PLACES)
+  const { places } = await client.request<GetPlacesQuery>(GET_PLACES, {
+    first: 100
+  })
 
   const fields: ISitemapField[] = places.map(({ slug }) => ({
     loc: `${locBase}/place/${slug}`,
