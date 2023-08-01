@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
+    "test:verbose": "jest --verbose",
     "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {

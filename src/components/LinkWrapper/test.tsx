@@ -14,5 +14,6 @@ describe('<LinkWrapper />', () => {
 
     expect(children).toBeInTheDocument()
     expect(children).toHaveAttribute('href', '/my-link')
+    expect(children).toHaveAttribute('aria-label', 'anything')
   })
 })
