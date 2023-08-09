@@ -8,12 +8,18 @@ const IconLegend = () => (
       <Link
         href="https://www.flaticon.com/authors/juicy-fish"
         title="juicy_fish icons"
+        aria-label="juicy_fish"
         target="_blank"
       >
         juicy_fish
       </Link>{' '}
       and published on the platform{' '}
-      <Link href="https://www.flaticon.com/" title="flaticon" target="_blank">
+      <Link
+        href="https://www.flaticon.com/"
+        title="flaticon"
+        aria-label="Flaticon"
+        target="_blank"
+      >
         Flaticon
       </Link>
     </small>
