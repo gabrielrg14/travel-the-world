@@ -3,11 +3,57 @@ import { render, screen } from '@testing-library/react'
 import IconLegend from '.'
 
 describe('<IconLegend />', () => {
+  it('should render icon caption of visited place with text, image and link', () => {
+    render(<IconLegend />)
+
+    const text = screen.getByText(/place visited/i)
+    const img = screen.getByRole('img', {
+      name: /marker icon/i
+    })
+    const link = screen.getByRole('link', {
+      name: /airplane icons/i
+    })
+
+    expect(text).toBeInTheDocument()
+    expect(img).toBeInTheDocument()
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('title', 'airplane icons')
+    expect(link).toHaveAttribute(
+      'href',
+      'https://www.flaticon.com/free-icons/airplane'
+    )
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAccessibleName()
+  })
+
+  it('should render icon caption of place to be visited with text, image and link', () => {
+    render(<IconLegend />)
+
+    const text = screen.getByText(/place to be visited/i)
+    const img = screen.getByRole('img', {
+      name: /target icon/i
+    })
+    const link = screen.getByRole('link', {
+      name: /goal icons/i
+    })
+
+    expect(text).toBeInTheDocument()
+    expect(img).toBeInTheDocument()
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('title', 'goal icons')
+    expect(link).toHaveAttribute(
+      'href',
+      'https://www.flaticon.com/free-icons/goal'
+    )
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAccessibleName()
+  })
+
   it('should render the link to the icons of juicy_fish with the correct attributes', () => {
     render(<IconLegend />)
 
     const link = screen.getByRole('link', {
-      name: /juicy_fish/i
+      name: 'juicy_fish'
     })
 
     expect(link).toBeInTheDocument()
@@ -24,7 +70,7 @@ describe('<IconLegend />', () => {
     render(<IconLegend />)
 
     const link = screen.getByRole('link', {
-      name: /flaticon/i
+      name: 'Flaticon'
     })
 
     expect(link).toBeInTheDocument()

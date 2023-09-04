@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Legend = styled.div`
+export const Wrapper = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
@@ -12,11 +12,25 @@ export const Legend = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
   z-index: 1100;
 
   a,
-  small {
-    font-size: 1.2rem;
+  span {
+    font-size: 1.3rem;
     line-height: 1.3;
   }
+`
+
+export const Icons = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`
+
+export const IconCaption = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 `

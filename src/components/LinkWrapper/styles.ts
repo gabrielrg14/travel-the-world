@@ -8,13 +8,13 @@ export const Wrapper = styled.div`
   cursor: pointer;
 
   svg {
-    color: var(--grey);
-    transition: color 0.3s ease-in-out;
+    color: var(--highlight);
+    transition: ease-in 0.1s;
   }
 
   &:hover {
     svg {
-      color: var(--highlight);
+      scale: 1.1;
     }
   }
 `
