@@ -7,16 +7,32 @@ const IconLegend = () => (
     <S.Icons>
       <S.IconCaption>
         <Link
+          href="https://www.flaticon.com/free-icons/maps-and-location"
+          title="maps-and-location icons"
+          aria-label="Maps-and-location icons created by juicy_fish - Flaticon"
+          target="_blank"
+        >
+          <Image
+            src="/img/home-128.png"
+            width={32}
+            height={32}
+            alt="home icon"
+          />
+        </Link>
+        <span>My place</span>
+      </S.IconCaption>
+      <S.IconCaption>
+        <Link
           href="https://www.flaticon.com/free-icons/airplane"
           title="airplane icons"
           aria-label="Airplane icons created by juicy_fish - Flaticon"
           target="_blank"
         >
           <Image
-            src="/img/marker-128.png"
+            src="/img/travel-128.png"
             width={32}
             height={32}
-            alt="Marker icon"
+            alt="travel icon"
           />
         </Link>
         <span>Place visited</span>
@@ -32,14 +48,14 @@ const IconLegend = () => (
             src="/img/target-128.png"
             width={32}
             height={32}
-            alt="Target icon"
+            alt="target icon"
           />
         </Link>
         <span>Place to be visited</span>
       </S.IconCaption>
     </S.Icons>
 
-    <span>
+    <small>
       The icons on the map were created by{' '}
       <Link
         href="https://www.flaticon.com/authors/juicy-fish"
@@ -58,7 +74,7 @@ const IconLegend = () => (
       >
         Flaticon
       </Link>
-    </span>
+    </small>
   </S.Wrapper>
 )
 

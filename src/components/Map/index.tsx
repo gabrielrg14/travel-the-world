@@ -8,7 +8,7 @@ type Place = {
   id: string
   name: string
   slug: string
-  visited: boolean
+  markerType: string
   location: {
     latitude: number
     longitude: number
@@ -42,9 +42,9 @@ const MapConsumer = () => {
   return null
 }
 
-const markerIcon = (visited: boolean) => {
+const markerIcon = (type: string) => {
   return new L.Icon({
-    iconUrl: `img/${visited ? 'marker-128' : 'target-128'}.png`,
+    iconUrl: `img/${type}-128.png`,
     attribution: 'test',
     iconSize: [40, 40],
     iconAnchor: [20, 40],
@@ -74,14 +74,14 @@ const Map = ({ places }: MapProps) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {places?.map(({ id, name, slug, visited, location }) => {
+        {places?.map(({ id, name, slug, markerType, location }) => {
           const { latitude, longitude } = location
           return (
             <Marker
               key={`place-${id}`}
               position={[latitude, longitude]}
               title={name}
-              icon={markerIcon(visited)}
+              icon={markerIcon(markerType)}
               eventHandlers={{
                 click: () => {
                   router.push(`/place/${slug}`)

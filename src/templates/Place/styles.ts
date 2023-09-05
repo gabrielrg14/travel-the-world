@@ -9,9 +9,15 @@ export const Container = styled.section`
   margin: auto;
 `
 
+export const Title = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: var(--medium);
+`
+
 export const Heading = styled.h1`
   font-size: var(--large);
-  margin-bottom: var(--medium);
 `
 
 export const Body = styled.div`

@@ -10,27 +10,36 @@ export const Wrapper = styled.div`
   color: var(--white);
   text-align: center;
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
+  gap: 0.75rem;
   z-index: 1100;
 
-  a,
   span {
     font-size: 1.3rem;
     line-height: 1.3;
+    text-align: start;
+  }
+
+  a,
+  small {
+    font-size: 1rem;
+    line-height: 1;
   }
 `
 
 export const Icons = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
 `
 
 export const IconCaption = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.25rem;
 `

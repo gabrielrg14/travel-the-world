@@ -3,12 +3,35 @@ import { render, screen } from '@testing-library/react'
 import IconLegend from '.'
 
 describe('<IconLegend />', () => {
+  it('should render icon caption of my place with text, image and link', () => {
+    render(<IconLegend />)
+
+    const text = screen.getByText(/my place/i)
+    const img = screen.getByRole('img', {
+      name: /home icon/i
+    })
+    const link = screen.getByRole('link', {
+      name: /maps-and-location icons/i
+    })
+
+    expect(text).toBeInTheDocument()
+    expect(img).toBeInTheDocument()
+    expect(link).toBeInTheDocument()
+    expect(link).toHaveAttribute('title', 'maps-and-location icons')
+    expect(link).toHaveAttribute(
+      'href',
+      'https://www.flaticon.com/free-icons/maps-and-location'
+    )
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAccessibleName()
+  })
+
   it('should render icon caption of visited place with text, image and link', () => {
     render(<IconLegend />)
 
     const text = screen.getByText(/place visited/i)
     const img = screen.getByRole('img', {
-      name: /marker icon/i
+      name: /travel icon/i
     })
     const link = screen.getByRole('link', {
       name: /airplane icons/i

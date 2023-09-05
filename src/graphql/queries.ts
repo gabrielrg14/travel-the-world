@@ -33,7 +33,7 @@ export const GET_PLACES = gql`
       id
       slug
       name
-      visited
+      markerType
       location {
         latitude
         longitude
@@ -56,7 +56,7 @@ export const GET_PLACE_BY_SLUG = gql`
       id
       slug
       name
-      visited
+      markerType
       location {
         latitude
         longitude

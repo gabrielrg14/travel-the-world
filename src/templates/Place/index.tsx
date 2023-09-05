@@ -16,6 +16,7 @@ export type PlaceTemplateProps = {
     id: string
     slug: string
     name: string
+    markerType: string
     location: {
       latitude: number
       longitude: number
@@ -62,7 +63,15 @@ const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
 
       <S.Wrapper>
         <S.Container>
-          <S.Heading>{place.name}</S.Heading>
+          <S.Title>
+            <S.Heading>{place.name}</S.Heading>
+            <Image
+              src={`/img/${place.markerType}-128.png`}
+              width={48}
+              height={48}
+              alt={`${place.markerType} icon`}
+            />
+          </S.Title>
 
           <S.Body
             dangerouslySetInnerHTML={{ __html: place.description?.html || '' }}
