@@ -1,11 +1,11 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 
-import client from 'graphql/client'
-import { GetPagesQuery, GetPageBySlugQuery } from 'graphql/generated/graphql'
+import { client } from 'graphql/client'
 import { GET_PAGES, GET_PAGE_BY_SLUG } from 'graphql/queries'
-
-import PageTemplate, { PageTemplateProps } from 'templates/Page'
+import { GetPagesQuery, GetPageBySlugQuery } from 'graphql/generated/graphql'
+import { IPage } from 'interfaces'
+import { PageTemplate } from 'templates'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { pages } = await client.request<GetPagesQuery>(GET_PAGES, { first: 3 })
@@ -26,20 +26,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     revalidate: 60,
-    props: {
-      slug: page.slug,
-      heading: page.heading,
-      body: page.body
-    }
+    props: { page }
   }
 }
 
-const Page = ({ slug, heading, body }: PageTemplateProps) => {
+type PageProps = {
+  page: IPage
+}
+
+const Page = ({ page }: PageProps) => {
   const router = useRouter()
 
   if (router.isFallback) return null
 
-  return <PageTemplate slug={slug} heading={heading} body={body} />
+  return <PageTemplate page={page} />
 }
 
 export default Page

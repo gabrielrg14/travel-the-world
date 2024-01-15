@@ -2,34 +2,15 @@ import { NextSeo } from 'next-seo'
 
 import * as S from './styles'
 import Image from 'next/image'
-import LinkWrapper from 'components/LinkWrapper'
+import { IPlace } from 'interfaces'
+import { LinkWrapper } from 'components'
 import { CloseOutline } from '@styled-icons/evaicons-outline'
 
-type ImageProps = {
-  url: string
-  width: number
-  height: number
+type PlaceTemplateProps = {
+  place: IPlace
 }
 
-export type PlaceTemplateProps = {
-  place: {
-    id: string
-    slug: string
-    name: string
-    markerType: string
-    location: {
-      latitude: number
-      longitude: number
-    }
-    description?: {
-      html: string
-      text: string
-    }
-    gallery: ImageProps[]
-  }
-}
-
-const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
+export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
   return (
     <>
       <NextSeo
@@ -94,5 +75,3 @@ const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
     </>
   )
 }
-
-export default PlaceTemplate

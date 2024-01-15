@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
   :root {
     --highlight: #18a330;
     --background: rgb(22, 24, 23);
@@ -44,5 +44,3 @@ const GlobalStyles = createGlobalStyle`
     color: var(--highlight);
   }
 `
-
-export default GlobalStyles

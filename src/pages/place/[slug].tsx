@@ -1,11 +1,11 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 
-import client from 'graphql/client'
-import { GetPlacesQuery, GetPlaceBySlugQuery } from 'graphql/generated/graphql'
+import { client } from 'graphql/client'
 import { GET_PLACES, GET_PLACE_BY_SLUG } from 'graphql/queries'
-
-import PlaceTemplate, { PlaceTemplateProps } from 'templates/Place'
+import { GetPlacesQuery, GetPlaceBySlugQuery } from 'graphql/generated/graphql'
+import { IPlace } from 'interfaces'
+import { PlaceTemplate } from 'templates'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { places } = await client.request<GetPlacesQuery>(GET_PLACES, {
@@ -35,7 +35,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
-const Place = ({ place }: PlaceTemplateProps) => {
+type PlaceProps = {
+  place: IPlace
+}
+
+const Place = ({ place }: PlaceProps) => {
   const router = useRouter()
 
   if (router.isFallback) return null

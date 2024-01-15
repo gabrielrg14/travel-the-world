@@ -29,7 +29,8 @@ describe('<Map />', () => {
         location: {
           latitude: 0,
           longitude: 0
-        }
+        },
+        gallery: [{ url: '', width: 100, height: 100 }]
       }
     ]
 
@@ -53,7 +54,8 @@ describe('<Map />', () => {
         location: {
           latitude: 110,
           longitude: -15
-        }
+        },
+        gallery: [{ url: '', width: 100, height: 100 }]
       }
     ]
 
@@ -77,7 +79,8 @@ describe('<Map />', () => {
         location: {
           latitude: 221,
           longitude: -30
-        }
+        },
+        gallery: [{ url: '', width: 100, height: 100 }]
       }
     ]
 

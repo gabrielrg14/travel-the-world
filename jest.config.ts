@@ -1,6 +1,6 @@
-/** @type {import('jest').Config} */
+import type { Config } from 'jest'
 
-module.exports = {
+const config: Config = {
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
   collectCoverage: false,
@@ -11,3 +11,5 @@ module.exports = {
     './node_modules/(?!(react-leaflet/lib|@react-leaflet/core/lib)/)'
   ]
 }
+
+export default config

@@ -2,7 +2,7 @@ import * as S from './styles'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const IconLegend = () => (
+export const IconLegend = () => (
   <S.Wrapper>
     <S.Icons>
       <S.IconCaption>
@@ -77,5 +77,3 @@ const IconLegend = () => (
     </small>
   </S.Wrapper>
 )
-
-export default IconLegend

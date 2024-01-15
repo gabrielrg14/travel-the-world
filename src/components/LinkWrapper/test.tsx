@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import LinkWrapper from '.'
+import { LinkWrapper } from '.'
 
 describe('<LinkWrapper />', () => {
   it('should render the link with the correct attributes and the children', () => {

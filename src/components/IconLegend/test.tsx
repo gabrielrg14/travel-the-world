@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import IconLegend from '.'
+import { IconLegend } from '.'
 
 describe('<IconLegend />', () => {
   it('should render icon caption of my place with text, image and link', () => {

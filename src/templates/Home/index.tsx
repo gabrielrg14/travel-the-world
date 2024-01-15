@@ -3,14 +3,17 @@ import { NextSeo } from 'next-seo'
 
 const Map = dynamic(() => import('components/Map'), { ssr: false })
 
-import { MapProps } from 'components/Map'
-import LinkWrapper from 'components/LinkWrapper'
+import { IPlace } from 'interfaces'
+import { LinkWrapper, IconLegend } from 'components'
 import { InfoOutline } from '@styled-icons/evaicons-outline'
-import IconLegend from 'components/IconLegend'
 
 const title = 'Travel the World'
 
-const HomeTemplate = ({ places }: MapProps) => (
+type HomeTemplateProps = {
+  places?: IPlace[]
+}
+
+export const HomeTemplate = ({ places }: HomeTemplateProps) => (
   <>
     <NextSeo
       title={title}
@@ -44,5 +47,3 @@ const HomeTemplate = ({ places }: MapProps) => (
     <IconLegend />
   </>
 )
-
-export default HomeTemplate

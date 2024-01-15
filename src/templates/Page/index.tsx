@@ -1,30 +1,26 @@
 import { NextSeo } from 'next-seo'
 
 import * as S from './styles'
-import LinkWrapper from 'components/LinkWrapper'
+import { IPage } from 'interfaces'
+import { LinkWrapper } from 'components'
 import { CloseOutline } from '@styled-icons/evaicons-outline'
 
-export type PageTemplateProps = {
-  slug: string
-  heading: string
-  body: {
-    html: string
-    text: string
-  }
+type PageTemplateProps = {
+  page: IPage
 }
 
-const PageTemplate = ({ slug, heading, body }: PageTemplateProps) => (
+export const PageTemplate = ({ page }: PageTemplateProps) => (
   <>
     <NextSeo
-      title={`${heading} - Travel the World`}
-      description={body.text}
+      title={`${page.heading} - Travel the World`}
+      description={page.body.text}
       additionalMetaTags={[
         {
           name: 'keywords',
-          content: `${heading}`
+          content: `${page.heading}`
         }
       ]}
-      canonical={`${process.env.NEXT_PUBLIC_SITE_URL}/${slug}`}
+      canonical={`${process.env.NEXT_PUBLIC_SITE_URL}/${page.slug}`}
     />
 
     <S.Content>
@@ -32,13 +28,11 @@ const PageTemplate = ({ slug, heading, body }: PageTemplateProps) => (
         <CloseOutline size={32} />
       </LinkWrapper>
 
-      <S.Heading>{heading}</S.Heading>
+      <S.Heading>{page.heading}</S.Heading>
 
       <S.Body>
-        <div dangerouslySetInnerHTML={{ __html: body.html }} />
+        <div dangerouslySetInnerHTML={{ __html: page.body.html }} />
       </S.Body>
     </S.Content>
   </>
 )
-
-export default PageTemplate

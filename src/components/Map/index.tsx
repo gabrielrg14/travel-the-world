@@ -1,23 +1,9 @@
 import { useRouter } from 'next/router'
 
 import * as S from './styles'
+import { IPlace } from 'interfaces'
 import L from 'leaflet'
 import { useMapEvents, MapContainer, TileLayer, Marker } from 'react-leaflet'
-
-type Place = {
-  id: string
-  name: string
-  slug: string
-  markerType: string
-  location: {
-    latitude: number
-    longitude: number
-  }
-}
-
-export type MapProps = {
-  places?: Place[]
-}
 
 const MapConsumer = () => {
   const map = useMapEvents({
@@ -50,6 +36,10 @@ const markerIcon = (type: string) => {
     iconAnchor: [20, 40],
     popupAnchor: [0, -40]
   })
+}
+
+type MapProps = {
+  places?: IPlace[]
 }
 
 const Map = ({ places }: MapProps) => {

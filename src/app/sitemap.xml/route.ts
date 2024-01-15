@@ -1,8 +1,8 @@
 import { getServerSideSitemap, ISitemapField } from 'next-sitemap'
 
-import client from 'graphql/client'
-import { GetPlacesQuery } from 'graphql/generated/graphql'
+import { client } from 'graphql/client'
 import { GET_PLACES } from 'graphql/queries'
+import { GetPlacesQuery } from 'graphql/generated/graphql'
 
 export async function GET() {
   const locBase = process.env.NEXT_PUBLIC_SITE_URL
