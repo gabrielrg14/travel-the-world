@@ -38,7 +38,7 @@ export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
         canonical={`${process.env.NEXT_PUBLIC_SITE_URL}/place/${place.slug}`}
       />
 
-      <LinkWrapper href="/" ariaLabel="Go back to map">
+      <LinkWrapper href="/" aria-label="Go back to map">
         <CloseOutline size={32} />
       </LinkWrapper>
 

@@ -38,7 +38,7 @@ export const HomeTemplate = ({ places }: HomeTemplateProps) => (
       canonical={`${process.env.NEXT_PUBLIC_SITE_URL}/`}
     />
 
-    <LinkWrapper href="/about" ariaLabel="Go to About page">
+    <LinkWrapper href="/about" aria-label="Go to About page">
       <InfoOutline size={32} />
     </LinkWrapper>
 

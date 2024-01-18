@@ -3,8 +3,6 @@ import type { Config } from 'jest'
 const config: Config = {
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
-  collectCoverage: false,
-  collectCoverageFrom: ['src/**/*.ts(x)'],
   moduleDirectories: ['node_modules', 'src'],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
   transformIgnorePatterns: [

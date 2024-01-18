@@ -1,20 +1,15 @@
 import * as S from './styles'
-import Link from 'next/link'
+import Link, { LinkProps } from 'next/link'
 
 type LinkWrapperProps = {
-  href: string
-  ariaLabel: string
   children: React.ReactNode
 }
 
 export const LinkWrapper = ({
-  href,
-  ariaLabel,
-  children
-}: LinkWrapperProps) => (
+  children,
+  ...rest
+}: LinkProps & LinkWrapperProps) => (
   <S.Wrapper>
-    <Link href={href} aria-label={ariaLabel}>
-      {children}
-    </Link>
+    <Link {...rest}>{children}</Link>
   </S.Wrapper>
 )

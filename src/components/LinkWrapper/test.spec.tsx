@@ -3,19 +3,18 @@ import { render, screen } from '@testing-library/react'
 import { LinkWrapper } from '.'
 
 describe('<LinkWrapper />', () => {
-  it('should render the link with the correct attributes and the children', () => {
+  it('should render with children and the correct attributes', () => {
     render(
-      <LinkWrapper href="/my-link" ariaLabel="anything">
+      <LinkWrapper href="/my-link" aria-label="anything">
         Anything
       </LinkWrapper>
     )
 
     const link = screen.getByRole('link', { name: /anything/i })
-    const children = screen.getByText(/anything/i)
 
+    expect(screen.getByText(/anything/i)).toBeInTheDocument()
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute('href', '/my-link')
-    expect(link).toHaveAccessibleName()
-    expect(children).toBeInTheDocument()
+    expect(link).toHaveAccessibleName(/anything/i)
   })
 })

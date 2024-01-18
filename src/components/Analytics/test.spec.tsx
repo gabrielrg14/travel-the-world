@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { Analytics } from '.'
 
 describe('<Analytics />', () => {
-  it('should contain the Google Analytics script tags', () => {
+  it('should render google analytics script tags', () => {
     render(<Analytics />)
 
     expect(screen.getByTestId('gtag-script')).toBeInTheDocument()
