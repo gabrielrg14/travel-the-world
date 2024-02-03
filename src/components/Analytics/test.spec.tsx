@@ -6,7 +6,7 @@ describe('<Analytics />', () => {
   it('should render google analytics script tags', () => {
     render(<Analytics />)
 
-    expect(screen.getByTestId('gtag-script')).toBeInTheDocument()
-    expect(screen.getByTestId('ga-script')).toBeInTheDocument()
+    expect(screen.getByTestId(/gtag-script/i)).toBeInTheDocument()
+    expect(screen.getByTestId(/ga-script/i)).toBeInTheDocument()
   })
 })

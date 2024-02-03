@@ -14,19 +14,19 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.8rem;
   z-index: 1100;
 
   span {
-    font-size: 1.3rem;
-    line-height: 1.3;
+    font-size: 1.2rem;
+    line-height: var(--small);
     text-align: start;
   }
 
   a,
   small {
     font-size: 1rem;
-    line-height: 1;
+    line-height: var(--small);
   }
 `
 

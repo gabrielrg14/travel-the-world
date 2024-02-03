@@ -9,7 +9,7 @@ import { PlaceTemplate } from 'templates'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { places } = await client.request<GetPlacesQuery>(GET_PLACES, {
-    first: 3
+    first: 12
   })
 
   const paths = places.map(({ slug }) => ({

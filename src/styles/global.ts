@@ -3,8 +3,8 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyles = createGlobalStyle`
   :root {
     --highlight: #18a330;
-    --background: rgb(22, 24, 23);
-    --white: #eeeeee;
+    --background: #161817;
+    --white: #f7fcfe;
     --grey: #cccccc;
 
     --container: 100rem;
@@ -31,11 +31,11 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
+    font-size: 1.6rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
-  p,
-  a {
+  p, a {
     font-size: 2rem;
     line-height: var(--medium);
   }
