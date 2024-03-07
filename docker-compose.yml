@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  next-app:
+    container_name: travel-the-world
+    build: .
+    restart: always
+    ports:
+      - 3000:3000
