@@ -12,4 +12,5 @@
 - [GraphQL](https://graphql.org/)
 - [Jest](https://jestjs.io/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Docker](https://www.docker.com/)
 - [Vercel](https://www.vercel.com)
