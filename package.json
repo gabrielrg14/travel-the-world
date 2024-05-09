@@ -2,16 +2,35 @@
   "name": "travel-the-world",
   "version": "1.0.0",
   "private": true,
+  "description": "A site to show pinned places that have already been visited or those that you must visit someday.",
+  "author": "Gabriel Rapucci Gonzalez <gabrielrapuccigonzalez14@hotmail.com> (https://gabrielrapucci.com.br)",
+  "homepage": "https://travels.gabrielrapucci.com.br",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabrielrg14/travel-the-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gabrielrg14/travel-the-world/issues"
+  },
+  "keywords": [
+    "nextjs",
+    "travels",
+    "travel-the-world",
+    "front-end",
+    "portfolio"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "codegen": "graphql-codegen --config codegen.ts",
     "lint": "next lint",
     "test": "jest",
     "test:verbose": "jest --verbose",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "codegen": "graphql-codegen --config codegen.ts"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "@styled-icons/evaicons-outline": "^10.46.0",
@@ -43,9 +62,11 @@
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "@typescript-eslint/parser": "^5.59.9",
+    "cypress": "^13.8.1",
     "eslint": "^8.42.0",
     "eslint-config-next": "^13.4.4",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-cypress": "^3.2.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
