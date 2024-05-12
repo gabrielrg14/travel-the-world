@@ -14,4 +14,5 @@
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Cypress](https://www.cypress.io/)
 - [Docker](https://www.docker.com/)
+- [GitHub Actions](https://github.com/features/actions/)
 - [Vercel](https://www.vercel.com/)

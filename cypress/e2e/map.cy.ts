@@ -17,7 +17,7 @@ describe('Map', () => {
     cy.get(`@testPlace`).should('be.visible')
   })
 
-  it('access footer links', () => {
+  it('check map legend links', () => {
     cy.get('a[title="maps-and-location icons"]')
       .should('be.visible')
       .and(
