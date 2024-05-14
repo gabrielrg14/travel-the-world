@@ -55,5 +55,8 @@ jobs:
           wait-on: 'http://localhost:3000'
           record: true
         env:
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          GRAPHQL_HOST: ${{ secrets.GRAPHQL_HOST }}
+          GRAPHQL_TOKEN: ${{ secrets.GRAPHQL_TOKEN }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
