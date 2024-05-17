@@ -1,7 +1,7 @@
 /// <reference types="../support/commands.d.ts" />
 
 describe('Page', () => {
-  it('navigate to the about page from the home page', () => {
+  it('navigate to the about page', () => {
     cy.intercept('GET', `**/about**`).as('getPage')
 
     cy.visit('/')
@@ -13,14 +13,8 @@ describe('Page', () => {
     cy.get('p').should('have.length.at.least', 1)
   })
 
-  it('close about page and navigate to home page', () => {
-    cy.intercept('GET', `**/index**`).as('getMapPlaces')
-
+  it('close the about page', () => {
     cy.visit('/about')
-
-    cy.get('a[href="/"]').should('be.visible').click()
-    cy.wait('@getMapPlaces')
-
-    cy.get('.leaflet-container').should('be.visible')
+    cy.closePage()
   })
 })

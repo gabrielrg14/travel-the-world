@@ -17,29 +17,27 @@ describe('Map', () => {
     cy.get(`@testPlace`).should('be.visible')
   })
 
-  it('check map legend links', () => {
-    cy.get('a[title="maps-and-location icons"]')
-      .should('be.visible')
-      .and(
-        'have.attr',
-        'href',
-        'https://www.flaticon.com/free-icons/maps-and-location'
-      )
+  it('validate map legend links', () => {
+    cy.validateMapLegendLink(
+      'maps-and-location icons',
+      'https://www.flaticon.com/free-icons/maps-and-location'
+    )
 
-    cy.get('a[title="airplane icons"]')
-      .should('be.visible')
-      .and('have.attr', 'href', 'https://www.flaticon.com/free-icons/airplane')
+    cy.validateMapLegendLink(
+      'airplane icons',
+      'https://www.flaticon.com/free-icons/airplane'
+    )
 
-    cy.get('a[title="goal icons"]')
-      .should('be.visible')
-      .and('have.attr', 'href', 'https://www.flaticon.com/free-icons/goal')
+    cy.validateMapLegendLink(
+      'goal icons',
+      'https://www.flaticon.com/free-icons/goal'
+    )
 
-    cy.get('a[title="juicy_fish icons"]')
-      .should('be.visible')
-      .and('have.attr', 'href', 'https://www.flaticon.com/authors/juicy-fish')
+    cy.validateMapLegendLink(
+      'juicy_fish icons',
+      'https://www.flaticon.com/authors/juicy-fish'
+    )
 
-    cy.get('a[title="flaticon"]')
-      .should('be.visible')
-      .and('have.attr', 'href', 'https://www.flaticon.com/')
+    cy.validateMapLegendLink('flaticon', 'https://www.flaticon.com/')
   })
 })
