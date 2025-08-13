@@ -10,7 +10,7 @@ const nextConfig = withPWA({
   reactStrictMode: true,
   output: process.env.BUILD_STANDALONE === 'true' ? 'standalone' : undefined,
   images: {
-    domains: ['media.graphassets.com']
+    domains: ['sa-east-1.graphassets.com']
   }
 })
 
