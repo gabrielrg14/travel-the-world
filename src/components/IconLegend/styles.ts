@@ -6,8 +6,8 @@ export const Wrapper = styled.div`
   left: 0;
   right: 0;
   padding: 1rem;
-  background-color: var(--background);
-  color: var(--white);
+  background-color: var(--dark-color);
+  color: var(--light-color);
   text-align: center;
   display: flex;
   flex-direction: column;

@@ -16,7 +16,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <VercelAnalytics />
       <GlobalStyles />
       <NextNProgress
-        color="var(--highlight)"
+        color="var(--highlight-color)"
         height={5}
         options={{ showSpinner: false }}
       />

@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   cursor: pointer;
 
   svg {
-    color: var(--highlight);
+    color: var(--highlight-color);
     transition: ease-in 0.1s;
   }
 

@@ -2,10 +2,10 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
   :root {
-    --highlight: #18a330;
-    --background: #161817;
-    --white: #f7fcfe;
-    --grey: #cccccc;
+    --highlight-color: #18a330;
+    --dark-color: #161817;
+    --light-color: #f7fcfe;
+    --grey-color: #cccccc;
 
     --container: 100rem;
 
@@ -27,12 +27,35 @@ export const GlobalStyles = createGlobalStyle`
   html, body, #__next {
     height: 100%;
     background-color: var(--background);
-    color: var(--white);
+    color: var(--light-color);
   }
 
   body {
     font-size: 1.6rem;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track-piece {
+    background-color: var(--dark-color);
+    border-radius: 0%;
+  }
+
+  ::-webkit-scrollbar-track-piece:hover {
+    box-shadow: inset 0 1px 1px var(--light-color);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 100%;
+    background-color: var(--dark-color);
+    background-image: -webkit-linear-gradient(90deg, transparent, var(--highlight-color) 45%, var(--highlight-color) 45%, transparent);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    border-radius: 0%;
   }
 
   p, a {

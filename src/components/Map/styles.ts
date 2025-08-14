@@ -5,6 +5,6 @@ export const MapWrapper = styled.div`
   height: 100%;
 
   .leaflet-container {
-    background-color: var(--background);
+    background-color: var(--dark-color);
   }
 `
