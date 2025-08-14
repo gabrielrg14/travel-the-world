@@ -26,7 +26,7 @@ export const GlobalStyles = createGlobalStyle`
 
   html, body, #__next {
     height: 100%;
-    background-color: var(--background);
+    background-color: var(--dark-color);
     color: var(--light-color);
   }
 
@@ -64,6 +64,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    color: var(--highlight);
+    color: var(--highlight-color);
   }
 `
