@@ -15,6 +15,7 @@ export const Content = styled.section`
 export const Heading = styled.h1`
   font-size: var(--large);
   margin-bottom: var(--large);
+  color: var(--highlight-color);
 `
 
 export const Body = styled.div`

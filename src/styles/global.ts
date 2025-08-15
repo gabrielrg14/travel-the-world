@@ -58,6 +58,10 @@ export const GlobalStyles = createGlobalStyle`
     border-radius: 0%;
   }
 
+  ::selection {
+    color: var(--highlight-color);
+  }
+
   p, a {
     font-size: 2rem;
     line-height: var(--medium);
