@@ -47,7 +47,7 @@ export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
           <S.Title>
             <S.Heading>{place.name}</S.Heading>
             <Image
-              src={`/img/${place.markerType}-128.png`}
+              src={`/images/marker/${place.markerType}.png`}
               width={48}
               height={48}
               alt={`${place.markerType} icon`}

@@ -30,7 +30,7 @@ const MapConsumer = () => {
 
 const markerIcon = (type: string) => {
   return new L.Icon({
-    iconUrl: `img/${type}-128.png`,
+    iconUrl: `images/marker/${type}.png`,
     attribution: 'test',
     iconSize: [40, 40],
     iconAnchor: [20, 40],

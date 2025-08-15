@@ -3,13 +3,13 @@
   "short_name": "Travel the World",
   "icons": [
     {
-      "src": "/img/icon-192.png",
+      "src": "/images/meta/icon-192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "/img/icon-512.png",
+      "src": "/images/meta/icon-512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"

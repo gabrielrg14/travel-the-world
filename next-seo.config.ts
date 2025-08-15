@@ -6,12 +6,12 @@ const config: DefaultSeoProps = {
   additionalLinkTags: [
     {
       rel: 'shortcut icon',
-      href: '/img/icon-512.png',
+      href: '/images/meta/icon-512.png',
       sizes: '512x512'
     },
     {
       rel: 'apple-touch-icon',
-      href: '/img/icon-512.png',
+      href: '/images/meta/icon-512.png',
       sizes: '512x512'
     },
     {

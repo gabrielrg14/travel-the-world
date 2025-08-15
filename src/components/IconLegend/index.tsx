@@ -13,7 +13,7 @@ export const IconLegend = () => (
           target="_blank"
         >
           <Image
-            src="/img/home-128.png"
+            src="/images/marker/home.png"
             width={32}
             height={32}
             alt="home icon"
@@ -29,7 +29,7 @@ export const IconLegend = () => (
           target="_blank"
         >
           <Image
-            src="/img/travel-128.png"
+            src="/images/marker/travel.png"
             width={32}
             height={32}
             alt="travel icon"
@@ -45,7 +45,7 @@ export const IconLegend = () => (
           target="_blank"
         >
           <Image
-            src="/img/target-128.png"
+            src="/images/marker/target.png"
             width={32}
             height={32}
             alt="target icon"

@@ -26,7 +26,7 @@ describe('<Map />', () => {
 
     expect(campinasPlace).toBeInTheDocument()
     expect(campinasPlace).toHaveAttribute('title', 'Campinas, São Paulo')
-    expect(campinasPlace).toHaveAttribute('src', 'img/home-128.png')
+    expect(campinasPlace).toHaveAttribute('src', 'images/marker/home.png')
   })
 
   it('should render the marker travel icon', () => {
@@ -36,7 +36,7 @@ describe('<Map />', () => {
 
     expect(ubatubaPlace).toBeInTheDocument()
     expect(ubatubaPlace).toHaveAttribute('title', 'Ubatuba, São Paulo')
-    expect(ubatubaPlace).toHaveAttribute('src', 'img/travel-128.png')
+    expect(ubatubaPlace).toHaveAttribute('src', 'images/marker/travel.png')
   })
 
   it('should render the marker target icon', () => {
@@ -46,7 +46,7 @@ describe('<Map />', () => {
 
     expect(canadaPlace).toBeInTheDocument()
     expect(canadaPlace).toHaveAttribute('title', 'Toronto, Canadá')
-    expect(canadaPlace).toHaveAttribute('src', 'img/target-128.png')
+    expect(canadaPlace).toHaveAttribute('src', 'images/marker/target.png')
   })
 
   it('should render the places of campinas, ubatuba and canada', () => {

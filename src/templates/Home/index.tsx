@@ -28,7 +28,7 @@ export const HomeTemplate = ({ places }: HomeTemplateProps) => (
       openGraph={{
         images: [
           {
-            url: `${process.env.NEXT_PUBLIC_SITE_URL}/img/cover.png`,
+            url: `${process.env.NEXT_PUBLIC_SITE_URL}/images/meta/cover.png`,
             width: 1280,
             height: 720,
             alt: title
