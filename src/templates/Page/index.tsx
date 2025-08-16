@@ -24,7 +24,7 @@ export const PageTemplate = ({ page }: PageTemplateProps) => (
     />
 
     <S.Content>
-      <LinkWrapper href="/" aria-label="Go back to map">
+      <LinkWrapper href="/" title="Close" aria-label="Close page">
         <CloseOutline size={32} />
       </LinkWrapper>
 

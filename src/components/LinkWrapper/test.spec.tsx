@@ -5,7 +5,7 @@ import { LinkWrapper } from '.'
 describe('<LinkWrapper />', () => {
   it('should render with children and the correct attributes', () => {
     render(
-      <LinkWrapper href="/my-link" aria-label="anything">
+      <LinkWrapper href="/anything" title="Anything" aria-label="Anything">
         Anything
       </LinkWrapper>
     )
@@ -14,7 +14,9 @@ describe('<LinkWrapper />', () => {
 
     expect(screen.getByText(/anything/i)).toBeInTheDocument()
     expect(link).toBeInTheDocument()
-    expect(link).toHaveAttribute('href', '/my-link')
+    expect(link).toHaveAttribute('href', '/anything')
+    expect(link).toHaveAttribute('title', 'Anything')
+    expect(link).toHaveAttribute('aria-label', 'Anything')
     expect(link).toHaveAccessibleName(/anything/i)
   })
 })
