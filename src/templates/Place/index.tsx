@@ -11,14 +11,28 @@ type PlaceTemplateProps = {
 }
 
 export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
+  const iconSrc = `/images/marker/${place.markerType}.png`
+
   return (
     <>
       <NextSeo
-        title={`${place.name} - Travel the World`}
+        title={place.name}
         description={
           place.description?.text ||
           `Discover a little more about ${place.name}.`
         }
+        additionalLinkTags={[
+          {
+            rel: 'shortcut icon',
+            href: iconSrc,
+            sizes: '128x128'
+          },
+          {
+            rel: 'apple-touch-icon',
+            href: iconSrc,
+            sizes: '128x128'
+          }
+        ]}
         additionalMetaTags={[
           {
             name: 'keywords',
@@ -47,7 +61,7 @@ export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
           <S.Title>
             <S.Heading>{place.name}</S.Heading>
             <Image
-              src={`/images/marker/${place.markerType}.png`}
+              src={iconSrc}
               width={48}
               height={48}
               alt={`${place.markerType} icon`}
