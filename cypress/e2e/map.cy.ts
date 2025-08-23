@@ -19,17 +19,22 @@ describe('Map', () => {
 
   it('validate map legend links', () => {
     cy.validateMapLegendLink(
-      'maps-and-location icons',
+      'Home',
       'https://www.flaticon.com/free-icons/maps-and-location'
     )
 
     cy.validateMapLegendLink(
-      'airplane icons',
+      'Car',
+      'https://www.flaticon.com/free-icons/maps-and-location'
+    )
+
+    cy.validateMapLegendLink(
+      'Airplane',
       'https://www.flaticon.com/free-icons/airplane'
     )
 
     cy.validateMapLegendLink(
-      'goal icons',
+      'Target',
       'https://www.flaticon.com/free-icons/goal'
     )
 
@@ -38,6 +43,6 @@ describe('Map', () => {
       'https://www.flaticon.com/authors/juicy-fish'
     )
 
-    cy.validateMapLegendLink('flaticon', 'https://www.flaticon.com/')
+    cy.validateMapLegendLink('Flaticon', 'https://www.flaticon.com/')
   })
 })

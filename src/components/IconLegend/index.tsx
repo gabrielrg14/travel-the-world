@@ -8,39 +8,55 @@ export const IconLegend = () => (
       <S.IconCaption>
         <Link
           href="https://www.flaticon.com/free-icons/maps-and-location"
-          title="maps-and-location icons"
-          aria-label="Maps-and-location icons created by juicy_fish - Flaticon"
+          title="Home"
+          aria-label="Maps and location icons created by juicy_fish - Flaticon"
           target="_blank"
         >
           <Image
             src="/images/marker/home.png"
             width={32}
             height={32}
-            alt="home icon"
+            alt="Home icon"
           />
         </Link>
         <span>My place</span>
       </S.IconCaption>
       <S.IconCaption>
         <Link
+          href="https://www.flaticon.com/free-icons/maps-and-location"
+          title="Car"
+          aria-label="Maps and location icons created by juicy_fish - Flaticon"
+          target="_blank"
+        >
+          <Image
+            src="/images/marker/car.png"
+            width={32}
+            height={32}
+            alt="Car icon"
+          />
+        </Link>
+        <span>Visited by car</span>
+      </S.IconCaption>
+      <S.IconCaption>
+        <Link
           href="https://www.flaticon.com/free-icons/airplane"
-          title="airplane icons"
+          title="Airplane"
           aria-label="Airplane icons created by juicy_fish - Flaticon"
           target="_blank"
         >
           <Image
-            src="/images/marker/travel.png"
+            src="/images/marker/airplane.png"
             width={32}
             height={32}
-            alt="travel icon"
+            alt="Airplane icon"
           />
         </Link>
-        <span>Place visited</span>
+        <span>Visited by airplane</span>
       </S.IconCaption>
       <S.IconCaption>
         <Link
           href="https://www.flaticon.com/free-icons/goal"
-          title="goal icons"
+          title="Target"
           aria-label="Goal icons created by juicy_fish - Flaticon"
           target="_blank"
         >
@@ -48,10 +64,10 @@ export const IconLegend = () => (
             src="/images/marker/target.png"
             width={32}
             height={32}
-            alt="target icon"
+            alt="Target icon"
           />
         </Link>
-        <span>Place to be visited</span>
+        <span>To be visited</span>
       </S.IconCaption>
     </S.Icons>
 
@@ -68,7 +84,7 @@ export const IconLegend = () => (
       and published on the platform{' '}
       <Link
         href="https://www.flaticon.com/"
-        title="flaticon"
+        title="Flaticon"
         aria-label="Flaticon"
         target="_blank"
       >

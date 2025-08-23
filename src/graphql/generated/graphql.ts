@@ -35,7 +35,7 @@ export type Aggregate = {
 };
 
 /** Asset system model */
-export type Asset = Node & {
+export type Asset = Entity & Node & {
   __typename?: 'Asset';
   /** The time the document was created */
   createdAt: Scalars['DateTime']['output'];
@@ -73,6 +73,8 @@ export type Asset = Node & {
   updatedAt: Scalars['DateTime']['output'];
   /** User that last updated this document */
   updatedBy?: Maybe<User>;
+  /** Returns information you need to upload the asset. The type of upload is dependant on what you pass into asset creations as upload type. */
+  upload?: Maybe<AssetUpload>;
   /** Get the url for the asset with provided transformations applied. */
   url: Scalars['String']['output'];
   /** The file width */
@@ -193,27 +195,21 @@ export type AssetConnection = {
 
 export type AssetCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  fileName: Scalars['String']['input'];
+  fileName?: InputMaybe<Scalars['String']['input']>;
   galleryPlace?: InputMaybe<PlaceCreateManyInlineInput>;
-  handle: Scalars['String']['input'];
-  height?: InputMaybe<Scalars['Float']['input']>;
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: InputMaybe<AssetCreateLocalizationsInput>;
-  mimeType?: InputMaybe<Scalars['String']['input']>;
-  size?: InputMaybe<Scalars['Float']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  width?: InputMaybe<Scalars['Float']['input']>;
+  /** Optionally the system can upload a file for you, for that you need to provide a publicly accessible url */
+  uploadUrl?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AssetCreateLocalizationDataInput = {
   createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  fileName: Scalars['String']['input'];
-  handle: Scalars['String']['input'];
-  height?: InputMaybe<Scalars['Float']['input']>;
-  mimeType?: InputMaybe<Scalars['String']['input']>;
-  size?: InputMaybe<Scalars['Float']['input']>;
+  fileName?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  width?: InputMaybe<Scalars['Float']['input']>;
+  /** Optionally the system can upload a file for you, for that you need to provide a publicly accessible url */
+  uploadUrl?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AssetCreateLocalizationInput = {
@@ -336,6 +332,7 @@ export type AssetManyWhereInput = {
   /** All values that are not contained in given list. */
   updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   updatedBy?: InputMaybe<UserWhereInput>;
+  upload?: InputMaybe<AssetUploadWhereInput>;
 };
 
 export enum AssetOrderByInput {
@@ -361,6 +358,17 @@ export enum AssetOrderByInput {
   WidthDesc = 'width_DESC'
 }
 
+/** Identifies documents */
+export type AssetSingleRelationWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<AssetSingleRelationWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<AssetSingleRelationWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<AssetSingleRelationWhereInput>>;
+  upload?: InputMaybe<AssetUploadWhereInput>;
+};
+
 /** Transformations for Assets */
 export type AssetTransformationInput = {
   document?: InputMaybe<DocumentTransformationInput>;
@@ -372,22 +380,20 @@ export type AssetTransformationInput = {
 export type AssetUpdateInput = {
   fileName?: InputMaybe<Scalars['String']['input']>;
   galleryPlace?: InputMaybe<PlaceUpdateManyInlineInput>;
-  handle?: InputMaybe<Scalars['String']['input']>;
-  height?: InputMaybe<Scalars['Float']['input']>;
   /** Manage document localizations */
   localizations?: InputMaybe<AssetUpdateLocalizationsInput>;
-  mimeType?: InputMaybe<Scalars['String']['input']>;
-  size?: InputMaybe<Scalars['Float']['input']>;
-  width?: InputMaybe<Scalars['Float']['input']>;
+  /** Use this to define if its a reupload for the asset */
+  reUpload?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Optionally the system can upload a file for you, for that you need to provide a publicly accessible url */
+  uploadUrl?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AssetUpdateLocalizationDataInput = {
   fileName?: InputMaybe<Scalars['String']['input']>;
-  handle?: InputMaybe<Scalars['String']['input']>;
-  height?: InputMaybe<Scalars['Float']['input']>;
-  mimeType?: InputMaybe<Scalars['String']['input']>;
-  size?: InputMaybe<Scalars['Float']['input']>;
-  width?: InputMaybe<Scalars['Float']['input']>;
+  /** Use this to define if its a reupload for the asset */
+  reUpload?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Optionally the system can upload a file for you, for that you need to provide a publicly accessible url */
+  uploadUrl?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AssetUpdateLocalizationInput = {
@@ -423,31 +429,8 @@ export type AssetUpdateManyInlineInput = {
 };
 
 export type AssetUpdateManyInput = {
-  fileName?: InputMaybe<Scalars['String']['input']>;
-  height?: InputMaybe<Scalars['Float']['input']>;
-  /** Optional updates to localizations */
-  localizations?: InputMaybe<AssetUpdateManyLocalizationsInput>;
-  mimeType?: InputMaybe<Scalars['String']['input']>;
-  size?: InputMaybe<Scalars['Float']['input']>;
-  width?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type AssetUpdateManyLocalizationDataInput = {
-  fileName?: InputMaybe<Scalars['String']['input']>;
-  height?: InputMaybe<Scalars['Float']['input']>;
-  mimeType?: InputMaybe<Scalars['String']['input']>;
-  size?: InputMaybe<Scalars['Float']['input']>;
-  width?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type AssetUpdateManyLocalizationInput = {
-  data: AssetUpdateManyLocalizationDataInput;
-  locale: Locale;
-};
-
-export type AssetUpdateManyLocalizationsInput = {
-  /** Localizations to update */
-  update?: InputMaybe<Array<AssetUpdateManyLocalizationInput>>;
+  /** No fields in updateMany data input */
+  _?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type AssetUpdateManyWithNestedWhereInput = {
@@ -477,6 +460,119 @@ export type AssetUpdateWithNestedWhereUniqueInput = {
   data: AssetUpdateInput;
   /** Unique document search */
   where: AssetWhereUniqueInput;
+};
+
+/** Asset Upload */
+export type AssetUpload = {
+  __typename?: 'AssetUpload';
+  /** Asset Upload Error */
+  error?: Maybe<AssetUploadError>;
+  /** Expiry Timestamp */
+  expiresAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Asset Request Data for upload */
+  requestPostData?: Maybe<AssetUploadRequestPostData>;
+  /** Asset Request Data for upload */
+  status?: Maybe<AssetUploadStatus>;
+};
+
+/** Represents asset upload error */
+export type AssetUploadError = {
+  __typename?: 'AssetUploadError';
+  code: Scalars['String']['output'];
+  message: Scalars['String']['output'];
+};
+
+/** Asset Upload Request Post Data */
+export type AssetUploadRequestPostData = {
+  __typename?: 'AssetUploadRequestPostData';
+  /** The algorithm to use in the form field. This value should be passed in the `X-Amz-Algorithm` form field. */
+  algorithm: Scalars['String']['output'];
+  /** The credential to use in the form field. This value should be passed in the `X-Amz-Credential` form field. */
+  credential: Scalars['String']['output'];
+  /** The date the request was signed, formatted as YYYYMMDDTHHMMSSZ. This value should be passed in the `X-Amz-Date` header. */
+  date: Scalars['String']['output'];
+  /** The key to use in the form field. This value should be passed in the `Key` form field. */
+  key: Scalars['String']['output'];
+  /** The policy to use in the form field. This value should be passed in the `Policy` form field. */
+  policy: Scalars['String']['output'];
+  /** The security token to use in the form field. This field is optional only pass it if its not null. This value should be passed in the `X-Amz-Security-Token` form field if not null. */
+  securityToken?: Maybe<Scalars['String']['output']>;
+  /** The signature to use in the form field. This value should be passed in the `X-Amz-Signature` form field. */
+  signature: Scalars['String']['output'];
+  /** The URL to which the file should be uploaded with a POST request. */
+  url: Scalars['String']['output'];
+};
+
+/** System Asset Upload Status */
+export enum AssetUploadStatus {
+  AssetCreatePending = 'ASSET_CREATE_PENDING',
+  AssetErrorUpload = 'ASSET_ERROR_UPLOAD',
+  AssetUpdatePending = 'ASSET_UPDATE_PENDING',
+  AssetUploadComplete = 'ASSET_UPLOAD_COMPLETE'
+}
+
+/** Identifies documents */
+export type AssetUploadWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<AssetUploadWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<AssetUploadWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<AssetUploadWhereInput>>;
+  expiresAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  expiresAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  expiresAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  expiresAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  expiresAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  expiresAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  expiresAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  expiresAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  status?: InputMaybe<AssetUploadStatus>;
+  /** All values that are contained in given list. */
+  status_in?: InputMaybe<Array<InputMaybe<AssetUploadStatus>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  status_not?: InputMaybe<AssetUploadStatus>;
+  /** All values that are not contained in given list. */
+  status_not_in?: InputMaybe<Array<InputMaybe<AssetUploadStatus>>>;
+};
+
+/** Identifies documents */
+export type AssetUploadWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<AssetUploadWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<AssetUploadWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<AssetUploadWhereInput>>;
+  expiresAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than the given value. */
+  expiresAt_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values greater than or equal the given value. */
+  expiresAt_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are contained in given list. */
+  expiresAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  /** All values less than the given value. */
+  expiresAt_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values less than or equal the given value. */
+  expiresAt_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** Any other value that exists and is not equal to the given value. */
+  expiresAt_not?: InputMaybe<Scalars['DateTime']['input']>;
+  /** All values that are not contained in given list. */
+  expiresAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  status?: InputMaybe<AssetUploadStatus>;
+  /** All values that are contained in given list. */
+  status_in?: InputMaybe<Array<InputMaybe<AssetUploadStatus>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  status_not?: InputMaybe<AssetUploadStatus>;
+  /** All values that are not contained in given list. */
+  status_not_in?: InputMaybe<Array<InputMaybe<AssetUploadStatus>>>;
 };
 
 export type AssetUpsertInput = {
@@ -678,6 +774,7 @@ export type AssetWhereInput = {
   /** All values that are not contained in given list. */
   updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   updatedBy?: InputMaybe<UserWhereInput>;
+  upload?: InputMaybe<AssetUploadWhereInput>;
   width?: InputMaybe<Scalars['Float']['input']>;
   /** All values greater than the given value. */
   width_gt?: InputMaybe<Scalars['Float']['input']>;
@@ -746,22 +843,17 @@ export type ConnectPositionInput = {
 };
 
 export enum DocumentFileTypes {
-  Doc = 'doc',
-  Docx = 'docx',
-  Html = 'html',
+  /** Automatically selects the best format for the image based on the browser's capabilities. */
+  AutoImage = 'autoImage',
+  Avif = 'avif',
+  Bmp = 'bmp',
+  Gif = 'gif',
+  Heic = 'heic',
   Jpg = 'jpg',
-  Odp = 'odp',
-  Ods = 'ods',
-  Odt = 'odt',
-  Pdf = 'pdf',
   Png = 'png',
-  Ppt = 'ppt',
-  Pptx = 'pptx',
   Svg = 'svg',
-  Txt = 'txt',
-  Webp = 'webp',
-  Xls = 'xls',
-  Xlsx = 'xlsx'
+  Tiff = 'tiff',
+  Webp = 'webp'
 }
 
 export type DocumentOutputInput = {
@@ -769,27 +861,15 @@ export type DocumentOutputInput = {
    * Transforms a document into a desired file type.
    * See this matrix for format support:
    *
-   * PDF:	jpg, odp, ods, odt, png, svg, txt, and webp
-   * DOC:	docx, html, jpg, odt, pdf, png, svg, txt, and webp
-   * DOCX:	doc, html, jpg, odt, pdf, png, svg, txt, and webp
-   * ODT:	doc, docx, html, jpg, pdf, png, svg, txt, and webp
-   * XLS:	jpg, pdf, ods, png, svg, xlsx, and webp
-   * XLSX:	jpg, pdf, ods, png, svg, xls, and webp
-   * ODS:	jpg, pdf, png, xls, svg, xlsx, and webp
-   * PPT:	jpg, odp, pdf, png, svg, pptx, and webp
-   * PPTX:	jpg, odp, pdf, png, svg, ppt, and webp
-   * ODP:	jpg, pdf, png, ppt, svg, pptx, and webp
-   * BMP:	jpg, odp, ods, odt, pdf, png, svg, and webp
-   * GIF:	jpg, odp, ods, odt, pdf, png, svg, and webp
-   * JPG:	jpg, odp, ods, odt, pdf, png, svg, and webp
-   * PNG:	jpg, odp, ods, odt, pdf, png, svg, and webp
-   * WEBP:	jpg, odp, ods, odt, pdf, png, svg, and webp
-   * TIFF:	jpg, odp, ods, odt, pdf, png, svg, and webp
-   * AI:	    jpg, odp, ods, odt, pdf, png, svg, and webp
-   * PSD:	jpg, odp, ods, odt, pdf, png, svg, and webp
-   * SVG:	jpg, odp, ods, odt, pdf, png, and webp
-   * HTML:	jpg, odt, pdf, svg, txt, and webp
-   * TXT:	jpg, html, odt, pdf, svg, and webp
+   * JPG:	autoImage, bmp, gif, jpg, png, webp, tiff
+   * PNG:	autoImage, bmp, gif, jpg, png, webp, tiff, svg
+   * SVG:	autoImage, bmp, gif, jpg, png, webp, tiff
+   * WEBP:	autoImage, bmp, gif, jpg, png, webp, tiff, svg
+   * GIF:	autoImage, bmp, gif, jpg, png, webp, tiff, svg
+   * TIFF:	autoImage, bmp, gif, jpg, png, webp, tiff, svg
+   * AVIF:	autoImage, bmp, gif, jpg, png, webp, tiff, svg
+   * PDF: 	autoImage, gif, jpg, png, webp, tiff
+   *
    */
   format?: InputMaybe<DocumentFileTypes>;
 };
@@ -809,6 +889,75 @@ export type DocumentVersion = {
   stage: Stage;
 };
 
+/** An object with an ID */
+export type Entity = {
+  /** The id of the object. */
+  id: Scalars['ID']['output'];
+  /** The Stage of an object */
+  stage: Stage;
+};
+
+/** This enumeration holds all typenames that implement the Entity interface. Components and models implement the Entity interface. */
+export enum EntityTypeName {
+  /** Asset system model */
+  Asset = 'Asset',
+  Page = 'Page',
+  Place = 'Place',
+  /** Scheduled Operation system model */
+  ScheduledOperation = 'ScheduledOperation',
+  /** Scheduled Release system model */
+  ScheduledRelease = 'ScheduledRelease',
+  /** User system model */
+  User = 'User'
+}
+
+/** Allows to specify input to query models and components directly */
+export type EntityWhereInput = {
+  /** The ID of an object */
+  id: Scalars['ID']['input'];
+  locale?: InputMaybe<Locale>;
+  stage: Stage;
+  /** The Type name of an object */
+  typename: EntityTypeName;
+};
+
+export type ImageBlurInput = {
+  /** The amount of blurring to apply to the image. The value must be an integer from 1 to 20. */
+  amount: Scalars['Int']['input'];
+};
+
+/** Adds a border to the image. */
+export type ImageBorderInput = {
+  /** The background color of the border. The value must be a valid hex color code. Or one of the supported color names. */
+  background: Scalars['String']['input'];
+  /** The color of the border. The value must be a valid hex color code. Or one of the supported color names. */
+  color: Scalars['String']['input'];
+  /** The width of the border in pixels. The value must be an integer from 1 to 1000. */
+  width: Scalars['Int']['input'];
+};
+
+export type ImageCompressInput = {
+  /** Preserves the metadata of the image. */
+  metadata: Scalars['Boolean']['input'];
+};
+
+/**
+ * Crops the image to the specified dimensions.
+ * The starting points for X and Y coordinates are [0,0], aligning with the top-left corner of the image.
+ * The width and height parameters determine the size in pixels of the cropping rectangle.
+ * The output will include only the portion of the image within the designated crop area.
+ */
+export type ImageCropInput = {
+  /** The height in pixels to resize the image to. The value must be an integer from 1 to 10000. */
+  height: Scalars['Int']['input'];
+  /** The width in pixels to resize the image to. The value must be an integer from 1 to 10000. */
+  width: Scalars['Int']['input'];
+  /** The x coordinate of the image. The value must be an integer from 0 to 10000. */
+  x: Scalars['Int']['input'];
+  /** The y coordinate of the image. The value must be an integer from 0 to 10000. */
+  y: Scalars['Int']['input'];
+};
+
 export enum ImageFit {
   /** Resizes the image to fit within the specified parameters without distorting, cropping, or changing the aspect ratio. */
   Clip = 'clip',
@@ -820,6 +969,11 @@ export enum ImageFit {
   Scale = 'scale'
 }
 
+export type ImageQualityInput = {
+  /** The quality of the image. The value must be an integer from 1 to 100. */
+  value: Scalars['Int']['input'];
+};
+
 export type ImageResizeInput = {
   /** The default value for the fit parameter is fit:clip. */
   fit?: InputMaybe<ImageFit>;
@@ -829,10 +983,30 @@ export type ImageResizeInput = {
   width?: InputMaybe<Scalars['Int']['input']>;
 };
 
+export type ImageSharpenInput = {
+  /** The amount of sharpening to apply to the image. The value must be an integer from 1 to 20. */
+  amount: Scalars['Int']['input'];
+};
+
 /** Transformations for Images */
 export type ImageTransformationInput = {
+  /** Blurs the image. */
+  blur?: InputMaybe<ImageBlurInput>;
+  /** Adds a border to the image. */
+  border?: InputMaybe<ImageBorderInput>;
+  /** Compresses the image. */
+  compress?: InputMaybe<ImageCompressInput>;
+  /** Crops the image to the specified dimensions. */
+  crop?: InputMaybe<ImageCropInput>;
+  /**
+   * Changes the quality of the image. The value must be an integer from 1 to 100.
+   * Only supported for the following formats jpeg, jpg, webp, gif, heif, tiff, avif.
+   */
+  quality?: InputMaybe<ImageQualityInput>;
   /** Resizes the image */
   resize?: InputMaybe<ImageResizeInput>;
+  /** Sharpens the image. */
+  sharpen?: InputMaybe<ImageSharpenInput>;
 };
 
 /** Locale system enumeration */
@@ -863,17 +1037,15 @@ export type LocationInput = {
 
 /** Icon type for place marker */
 export enum Marker_Type {
+  Airplane = 'airplane',
+  Car = 'car',
   Home = 'home',
-  Target = 'target',
-  Travel = 'travel'
+  Target = 'target'
 }
 
 export type Mutation = {
   __typename?: 'Mutation';
-  /**
-   * Create one asset
-   * @deprecated Asset mutations will be overhauled soon
-   */
+  /** Create an asset. Use the returned info to finish the creation process by uploading the asset. */
   createAsset?: Maybe<Asset>;
   /** Create one page */
   createPage?: Maybe<Page>;
@@ -1418,7 +1590,7 @@ export type Node = {
   stage: Stage;
 };
 
-export type Page = Node & {
+export type Page = Entity & Node & {
   __typename?: 'Page';
   body: RichText;
   /** The time the document was created */
@@ -1911,7 +2083,7 @@ export type PageWhereUniqueInput = {
   slug?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type Place = Node & {
+export type Place = Entity & Node & {
   __typename?: 'Place';
   /** The time the document was created */
   createdAt: Scalars['DateTime']['output'];
@@ -1940,7 +2112,6 @@ export type Place = Node & {
   updatedAt: Scalars['DateTime']['output'];
   /** User that last updated this document */
   updatedBy?: Maybe<User>;
-  visited: Scalars['Boolean']['output'];
 };
 
 
@@ -2026,7 +2197,6 @@ export type PlaceCreateInput = {
   name: Scalars['String']['input'];
   slug: Scalars['String']['input'];
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  visited: Scalars['Boolean']['input'];
 };
 
 export type PlaceCreateManyInlineInput = {
@@ -2183,9 +2353,6 @@ export type PlaceManyWhereInput = {
   /** All values that are not contained in given list. */
   updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   updatedBy?: InputMaybe<UserWhereInput>;
-  visited?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Any other value that exists and is not equal to the given value. */
-  visited_not?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export enum PlaceOrderByInput {
@@ -2202,9 +2369,7 @@ export enum PlaceOrderByInput {
   SlugAsc = 'slug_ASC',
   SlugDesc = 'slug_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC',
-  VisitedAsc = 'visited_ASC',
-  VisitedDesc = 'visited_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC'
 }
 
 export type PlaceUpdateInput = {
@@ -2214,7 +2379,6 @@ export type PlaceUpdateInput = {
   markerType?: InputMaybe<Marker_Type>;
   name?: InputMaybe<Scalars['String']['input']>;
   slug?: InputMaybe<Scalars['String']['input']>;
-  visited?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type PlaceUpdateManyInlineInput = {
@@ -2238,7 +2402,6 @@ export type PlaceUpdateManyInput = {
   description?: InputMaybe<Scalars['RichTextAST']['input']>;
   markerType?: InputMaybe<Marker_Type>;
   name?: InputMaybe<Scalars['String']['input']>;
-  visited?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type PlaceUpdateManyWithNestedWhereInput = {
@@ -2421,9 +2584,6 @@ export type PlaceWhereInput = {
   /** All values that are not contained in given list. */
   updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   updatedBy?: InputMaybe<UserWhereInput>;
-  visited?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Any other value that exists and is not equal to the given value. */
-  visited_not?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
@@ -2463,6 +2623,8 @@ export type Query = {
   assets: Array<Asset>;
   /** Retrieve multiple assets using the Relay connection interface */
   assetsConnection: AssetConnection;
+  /** Fetches an object given its ID */
+  entities?: Maybe<Array<Entity>>;
   /** Fetches an object given its ID */
   node?: Maybe<Node>;
   /** Retrieve a single page */
@@ -2537,6 +2699,12 @@ export type QueryAssetsConnectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   stage?: Stage;
   where?: InputMaybe<AssetWhereInput>;
+};
+
+
+export type QueryEntitiesArgs = {
+  locales?: InputMaybe<Array<Locale>>;
+  where: Array<EntityWhereInput>;
 };
 
 
@@ -2752,7 +2920,7 @@ export type RichText = {
 };
 
 /** Scheduled Operation system model */
-export type ScheduledOperation = Node & {
+export type ScheduledOperation = Entity & Node & {
   __typename?: 'ScheduledOperation';
   affectedDocuments: Array<ScheduledOperationAffectedDocument>;
   /** The time the document was created */
@@ -3187,7 +3355,7 @@ export type ScheduledOperationWhereUniqueInput = {
 };
 
 /** Scheduled Release system model */
-export type ScheduledRelease = Node & {
+export type ScheduledRelease = Entity & Node & {
   __typename?: 'ScheduledRelease';
   /** The time the document was created */
   createdAt: Scalars['DateTime']['output'];
@@ -3788,7 +3956,7 @@ export type UnpublishLocaleInput = {
 };
 
 /** User system model */
-export type User = Node & {
+export type User = Entity & Node & {
   __typename?: 'User';
   /** The time the document was created */
   createdAt: Scalars['DateTime']['output'];
@@ -4201,6 +4369,7 @@ export enum _FilterKind {
   ContainsAll = 'contains_all',
   ContainsNone = 'contains_none',
   ContainsSome = 'contains_some',
+  DescendantsOf = 'descendants_of',
   EndsWith = 'ends_with',
   Eq = 'eq',
   EqNot = 'eq_not',

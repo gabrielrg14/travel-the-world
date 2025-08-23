@@ -9,7 +9,7 @@ const campinas = {
   },
   gallery: [
     {
-      url: 'https://media.graphassets.com/8nQILXzQJQquJPvnZ6gN',
+      url: 'https://sa-east-1.graphassets.com/AZLmvswWRY2aYw5qUkF2Vz/8nQILXzQJQquJPvnZ6gN',
       height: 1200,
       width: 1600
     }
@@ -20,34 +20,52 @@ const ubatuba = {
   id: 'cljeweplm16hx0bkfe6sjlqwg',
   name: 'Ubatuba, São Paulo',
   slug: 'ubatuba-sao-paulo',
-  markerType: 'travel',
+  markerType: 'car',
   location: {
     latitude: -23.4337941,
     longitude: -45.085956
   },
   gallery: [
     {
-      url: 'https://media.graphassets.com/5arl42RoQu6Gz24dTXv6',
+      url: 'https://sa-east-1.graphassets.com/AZLmvswWRY2aYw5qUkF2Vz/5arl42RoQu6Gz24dTXv6',
       height: 535,
       width: 800
     }
   ]
 }
 
-const canada = {
-  id: 'clm6dfini5k8t0alvp6ir058i',
-  name: 'Toronto, Canadá',
-  slug: 'toronto-canada',
-  markerType: 'target',
+const venezia = {
+  id: 'clm59ymyt4lex0bm0xzcn4m0j',
+  name: 'Venezia, Italy',
+  slug: 'venezia-italy',
+  markerType: 'airplane',
   location: {
-    latitude: 43.653226,
-    longitude: -79.3831843
+    latitude: 45.4408474,
+    longitude: 12.3155151
   },
   gallery: [
     {
-      url: 'https://media.graphassets.com/YOk2aLVSHaHb1hYcTY7A',
-      height: 1894,
-      width: 2400
+      url: 'https://sa-east-1.graphassets.com/AZLmvswWRY2aYw5qUkF2Vz/J5Clj3FQqKdlYF8qxqTH',
+      height: 1080,
+      width: 1080
+    }
+  ]
+}
+
+const cairo = {
+  id: 'clm7sf3d403nn0bj1iku6kif7',
+  name: 'Cairo, Egypt',
+  slug: 'cairo-egypt',
+  markerType: 'target',
+  location: {
+    latitude: 30.0444196,
+    longitude: 31.2357116
+  },
+  gallery: [
+    {
+      url: 'https://sa-east-1.graphassets.com/AZLmvswWRY2aYw5qUkF2Vz/ObUcYLtASqqFVfC8ufeT',
+      height: 480,
+      width: 640
     }
   ]
 }
@@ -55,6 +73,7 @@ const canada = {
 export const placeMocks = {
   campinas,
   ubatuba,
-  canada,
-  list: [campinas, ubatuba, canada]
+  venezia,
+  cairo,
+  list: [campinas, ubatuba, venezia, cairo]
 }

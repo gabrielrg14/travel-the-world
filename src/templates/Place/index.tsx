@@ -11,7 +11,7 @@ type PlaceTemplateProps = {
 }
 
 export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
-  const iconSrc = `/images/marker/${place.markerType}.png`
+  const markerSrc = `/images/marker/${place.markerType}.png`
 
   return (
     <>
@@ -24,12 +24,12 @@ export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
         additionalLinkTags={[
           {
             rel: 'shortcut icon',
-            href: iconSrc,
+            href: markerSrc,
             sizes: '128x128'
           },
           {
             rel: 'apple-touch-icon',
-            href: iconSrc,
+            href: markerSrc,
             sizes: '128x128'
           }
         ]}
@@ -61,10 +61,10 @@ export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
           <S.Title>
             <S.Heading>{place.name}</S.Heading>
             <Image
-              src={iconSrc}
+              src={markerSrc}
               width={48}
               height={48}
-              alt={`${place.markerType} icon`}
+              alt={`${place.markerType} marker`}
             />
           </S.Title>
 
