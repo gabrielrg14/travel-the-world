@@ -9,11 +9,11 @@ export const Content = styled.section`
   height: 100%;
   max-width: var(--container);
   margin: auto;
-  padding: var(--large) var(--medium);
+  padding: var(--x-large) var(--large);
 `
 
 export const Heading = styled.h1`
-  font-size: var(--large);
+  font-size: var(--x-large);
   color: var(--highlight-color);
 `
 
@@ -21,5 +21,5 @@ export const Body = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--medium);
+  font-size: var(--large);
 `

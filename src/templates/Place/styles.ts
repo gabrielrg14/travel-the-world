@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  padding: var(--large) var(--medium);
+  padding: var(--x-large) var(--large);
 `
 
 export const Container = styled.section`
@@ -12,25 +12,27 @@ export const Container = styled.section`
 export const Title = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: var(--medium);
+  gap: var(--x-small);
+  margin-bottom: var(--large);
 `
 
 export const Heading = styled.h1`
-  font-size: var(--large);
+  font-size: var(--x-large);
 `
 
 export const Body = styled.div`
-  margin-bottom: var(--large);
+  margin-bottom: var(--x-large);
 
   p {
+    font-size: var(--medium);
+    line-height: var(--large);
     margin-bottom: var(--medium);
   }
 `
 
 export const Gallery = styled.div`
   display: grid;
-  grid-gap: var(--medium);
+  grid-gap: var(--large);
 
   img {
     width: 100%;

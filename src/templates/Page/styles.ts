@@ -9,20 +9,20 @@ export const Content = styled.section`
   height: 100%;
   max-width: var(--container);
   margin: auto;
-  padding: var(--large) var(--medium);
+  padding: var(--x-large) var(--large);
 `
 
 export const Heading = styled.h1`
-  font-size: var(--large);
-  margin-bottom: var(--large);
+  font-size: var(--x-large);
+  margin-bottom: var(--x-large);
   color: var(--highlight-color);
 `
 
 export const Body = styled.div`
   p,
   blockquote {
-    font-size: var(--medium);
-    line-height: var(--medium);
-    margin-bottom: var(--medium);
+    font-size: var(--large);
+    line-height: var(--large);
+    margin-bottom: var(--large);
   }
 `
