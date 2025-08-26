@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next'
 import { client } from 'graphql/client'
 import { GET_PLACES } from 'graphql/queries'
 import { GetPlacesQuery } from 'graphql/generated/graphql'
-import { IPlace } from 'interfaces'
+import { IPlaceMap } from 'interfaces'
 import { HomeTemplate } from 'templates'
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps = async () => {
 }
 
 type HomeProps = {
-  places?: IPlace[]
+  places?: IPlaceMap[]
 }
 
 const Home = ({ places }: HomeProps) => {

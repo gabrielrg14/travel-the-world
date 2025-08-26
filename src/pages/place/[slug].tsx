@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { client } from 'graphql/client'
 import { GET_PLACES, GET_PLACE_BY_SLUG } from 'graphql/queries'
 import { GetPlacesQuery, GetPlaceBySlugQuery } from 'graphql/generated/graphql'
-import { IPlace } from 'interfaces'
+import { IPlacePage } from 'interfaces'
 import { PlaceTemplate } from 'templates'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 type PlaceProps = {
-  place: IPlace
+  place: IPlacePage
 }
 
 const Place = ({ place }: PlaceProps) => {

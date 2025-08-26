@@ -2,12 +2,12 @@ import { NextSeo } from 'next-seo'
 
 import * as S from './styles'
 import Image from 'next/image'
-import { IPlace } from 'interfaces'
+import { IPlacePage } from 'interfaces'
 import { LinkWrapper } from 'components'
 import { CloseOutline } from '@styled-icons/evaicons-outline'
 
 type PlaceTemplateProps = {
-  place: IPlace
+  place: IPlacePage
 }
 
 export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
@@ -17,10 +17,7 @@ export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
     <>
       <NextSeo
         title={place.name}
-        description={
-          place.description?.text ||
-          `Discover a little more about ${place.name}.`
-        }
+        description={place.description?.text || place.name}
         additionalLinkTags={[
           {
             rel: 'shortcut icon',

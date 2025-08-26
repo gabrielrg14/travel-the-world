@@ -3,12 +3,12 @@ import { NextSeo } from 'next-seo'
 
 const Map = dynamic(() => import('components/Map'), { ssr: false })
 
-import { IPlace } from 'interfaces'
+import { IPlaceMap } from 'interfaces'
 import { LinkWrapper, IconLegend } from 'components'
 import { InfoOutline } from '@styled-icons/evaicons-outline'
 
 type HomeTemplateProps = {
-  places?: IPlace[]
+  places?: IPlaceMap[]
 }
 
 export const HomeTemplate = ({ places }: HomeTemplateProps) => {
