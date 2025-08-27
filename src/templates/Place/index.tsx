@@ -42,7 +42,7 @@ export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
               url: place.gallery[0].url,
               width: place.gallery[0].width,
               height: place.gallery[0].height,
-              alt: place.name
+              alt: place.gallery[0].caption || place.name
             }
           ]
         }}
@@ -71,14 +71,17 @@ export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
 
           <S.Gallery>
             {place.gallery?.map((image, index) => (
-              <Image
-                key={`image-${index}`}
-                src={image.url}
-                width={image.width}
-                height={image.height}
-                quality={75}
-                alt={place.name}
-              />
+              <S.ImageWrapper key={`image-${index}`}>
+                <Image
+                  src={image.url}
+                  title={image.caption || place.name}
+                  alt={image.caption || place.name}
+                  width={image.width}
+                  height={image.height}
+                  quality={75}
+                />
+                {image.caption && <S.Caption>{image.caption}</S.Caption>}
+              </S.ImageWrapper>
             ))}
           </S.Gallery>
         </S.Container>

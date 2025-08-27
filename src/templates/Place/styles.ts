@@ -59,3 +59,15 @@ export const Gallery = styled.div`
     }
   }
 `
+
+export const ImageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+export const Caption = styled.small`
+  font-size: var(--small);
+  margin-top: var(--x-small);
+`
