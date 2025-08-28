@@ -77,6 +77,7 @@ export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
                   src={image.url}
                   title={image.caption || place.name}
                   alt={image.caption || place.name}
+                  data-testid={place.name}
                   width={image.width}
                   height={image.height}
                   quality={75}

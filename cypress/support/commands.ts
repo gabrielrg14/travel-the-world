@@ -33,7 +33,7 @@ Cypress.Commands.add(
   (title: string, markerAlt: string) => {
     cy.contains('h1', title).should('be.visible')
     cy.get(`img[alt="${markerAlt}"]`).should('be.visible')
-    cy.get(`img[alt="${title}"]`).should('have.length.at.least', 1)
+    cy.get(`img[data-testid="${title}"]`).should('have.length.at.least', 1)
   }
 )
 
