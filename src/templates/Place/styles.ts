@@ -70,4 +70,5 @@ export const ImageWrapper = styled.div`
 export const Caption = styled.small`
   font-size: var(--small);
   margin-top: var(--x-small);
+  text-align: center;
 `
