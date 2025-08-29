@@ -33,7 +33,7 @@ export const Icons = styled.div`
   gap: var(--small);
 `
 
-export const IconCaption = styled.div`
+export const LegendIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

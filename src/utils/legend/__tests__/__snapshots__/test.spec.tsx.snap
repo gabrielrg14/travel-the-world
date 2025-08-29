@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`legend legendIcons should match snapshot 1`] = `
+[
+  {
+    "href": "https://www.flaticon.com/free-icons/maps-and-location",
+    "label": "Maps and location icons created by juicy_fish - Flaticon",
+    "name": "home",
+    "text": "My place",
+    "title": "Home",
+  },
+  {
+    "href": "https://www.flaticon.com/free-icons/maps-and-location",
+    "label": "Maps and location icons created by juicy_fish - Flaticon",
+    "name": "car",
+    "text": "Visited by car",
+    "title": "Car",
+  },
+  {
+    "href": "https://www.flaticon.com/free-icons/airplane",
+    "label": "Airplane icons created by juicy_fish - Flaticon",
+    "name": "airplane",
+    "text": "Visited by airplane",
+    "title": "Airplane",
+  },
+  {
+    "href": "https://www.flaticon.com/free-icons/goal",
+    "label": "Goal icons created by juicy_fish - Flaticon",
+    "name": "target",
+    "text": "To be visited",
+    "title": "Target",
+  },
+]
+`;
+
+exports[`legend legendLinks should match snapshot 1`] = `
+[
+  {
+    "href": "https://www.flaticon.com/authors/juicy-fish",
+    "label": "Go to juicy_fish icons",
+    "text": "juicy_fish",
+    "title": "juicy_fish icons",
+  },
+  {
+    "href": "https://www.flaticon.com",
+    "label": "Go to Flaticon",
+    "text": "Flaticon",
+    "title": "Flaticon",
+  },
+]
+`;

@@ -43,6 +43,6 @@ describe('Map', () => {
       'https://www.flaticon.com/authors/juicy-fish'
     )
 
-    cy.validateMapLegendLink('Flaticon', 'https://www.flaticon.com/')
+    cy.validateMapLegendLink('Flaticon', 'https://www.flaticon.com')
   })
 })

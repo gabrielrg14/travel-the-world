@@ -6,14 +6,15 @@ describe('<IconLegend />', () => {
   it('should render icon caption of my place with text, image and link', () => {
     render(<IconLegend />)
 
-    const link = screen.getByTitle(/home/i)
+    const text = screen.getByText(/my place/i)
+    const image = screen.getByRole('img', {
+      name: /home icon/i
+    })
+    const link = screen.getByTitle('Home')
 
-    expect(screen.getByText(/my place/i)).toBeInTheDocument()
-    expect(
-      screen.getByRole('img', {
-        name: /home icon/i
-      })
-    ).toBeInTheDocument()
+    expect(text).toBeInTheDocument()
+    expect(image).toBeInTheDocument()
+    expect(image).toHaveAttribute('title', 'Home icon')
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute('title', 'Home')
     expect(link).toHaveAttribute(
@@ -29,14 +30,15 @@ describe('<IconLegend />', () => {
   it('should render icon caption of place visited by car with text, image and link', () => {
     render(<IconLegend />)
 
-    const link = screen.getByTitle(/car/i)
+    const text = screen.getByText(/visited by car/i)
+    const image = screen.getByRole('img', {
+      name: /car icon/i
+    })
+    const link = screen.getByTitle('Car')
 
-    expect(screen.getByText(/visited by car/i)).toBeInTheDocument()
-    expect(
-      screen.getByRole('img', {
-        name: /car icon/i
-      })
-    ).toBeInTheDocument()
+    expect(text).toBeInTheDocument()
+    expect(image).toBeInTheDocument()
+    expect(image).toHaveAttribute('title', 'Car icon')
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute('title', 'Car')
     expect(link).toHaveAttribute(
@@ -52,14 +54,15 @@ describe('<IconLegend />', () => {
   it('should render icon caption of place visited by airplane with text, image and link', () => {
     render(<IconLegend />)
 
-    const link = screen.getByTitle(/airplane/i)
+    const text = screen.getByText(/visited by airplane/i)
+    const image = screen.getByRole('img', {
+      name: /airplane icon/i
+    })
+    const link = screen.getByTitle('Airplane')
 
-    expect(screen.getByText(/visited by airplane/i)).toBeInTheDocument()
-    expect(
-      screen.getByRole('img', {
-        name: /airplane icon/i
-      })
-    ).toBeInTheDocument()
+    expect(text).toBeInTheDocument()
+    expect(image).toBeInTheDocument()
+    expect(image).toHaveAttribute('title', 'Airplane icon')
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute('title', 'Airplane')
     expect(link).toHaveAttribute(
@@ -73,14 +76,15 @@ describe('<IconLegend />', () => {
   it('should render icon caption of place to be visited with text, image and link', () => {
     render(<IconLegend />)
 
-    const link = screen.getByTitle(/target/i)
+    const text = screen.getByText(/to be visited/i)
+    const image = screen.getByRole('img', {
+      name: /target icon/i
+    })
+    const link = screen.getByTitle('Target')
 
-    expect(screen.getByText(/to be visited/i)).toBeInTheDocument()
-    expect(
-      screen.getByRole('img', {
-        name: /target icon/i
-      })
-    ).toBeInTheDocument()
+    expect(text).toBeInTheDocument()
+    expect(image).toBeInTheDocument()
+    expect(image).toHaveAttribute('title', 'Target icon')
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute('title', 'Target')
     expect(link).toHaveAttribute(
@@ -91,7 +95,7 @@ describe('<IconLegend />', () => {
     expect(link).toHaveAccessibleName(/goal icons created by juicy_fish/i)
   })
 
-  it('should render the link to the icons of juicy_fish with the correct attributes', () => {
+  it('should render the link of juicy_fish icons with the correct attributes', () => {
     render(<IconLegend />)
 
     const link = screen.getByTitle(/juicy_fish/i)
@@ -104,7 +108,7 @@ describe('<IconLegend />', () => {
       'https://www.flaticon.com/authors/juicy-fish'
     )
     expect(link).toHaveAttribute('target', '_blank')
-    expect(link).toHaveAccessibleName(/juicy_fish/i)
+    expect(link).toHaveAccessibleName(/go to juicy_fish icons/i)
   })
 
   it('should render the link of flaticon platform with the correct attributes', () => {
@@ -114,9 +118,9 @@ describe('<IconLegend />', () => {
 
     expect(screen.getByText(/flaticon/i)).toBeInTheDocument()
     expect(link).toBeInTheDocument()
-    expect(link).toHaveAttribute('href', 'https://www.flaticon.com/')
+    expect(link).toHaveAttribute('href', 'https://www.flaticon.com')
     expect(link).toHaveAttribute('title', 'Flaticon')
     expect(link).toHaveAttribute('target', '_blank')
-    expect(link).toHaveAccessibleName(/flaticon/i)
+    expect(link).toHaveAccessibleName(/go to flaticon/i)
   })
 })
