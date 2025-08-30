@@ -1,4 +1,4 @@
-export interface ILegend {
+export interface ILegendLink {
   name?: string
   title: string
   text?: string

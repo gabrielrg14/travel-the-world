@@ -1,6 +1,6 @@
-import { ILegend } from 'interfaces'
+import { ILegendLink } from 'interfaces'
 
-export const legendLinks: ILegend[] = [
+export const legendLinks: ILegendLink[] = [
   {
     title: 'juicy_fish icons',
     text: 'juicy_fish',

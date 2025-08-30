@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react'
-import { legendMocks } from 'test/mocks'
+import { legendLinksMock } from 'test/mocks'
 
 import { LegendLink } from '.'
 
 describe('<LegendLink />', () => {
   it('should render with children and the correct attributes', () => {
-    render(<LegendLink {...legendMocks[0]}>Anything</LegendLink>)
+    render(<LegendLink {...legendLinksMock[0]}>Anything</LegendLink>)
 
     const link = screen.getByRole('link', { name: /anything/i })
 
@@ -18,7 +18,7 @@ describe('<LegendLink />', () => {
   })
 
   it('should render with text and the correct attributes', () => {
-    render(<LegendLink {...legendMocks[1]} />)
+    render(<LegendLink {...legendLinksMock[1]} />)
 
     const link = screen.getByRole('link', { name: /legend/i })
 

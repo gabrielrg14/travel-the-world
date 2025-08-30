@@ -70,7 +70,7 @@ const cairo = {
   ]
 }
 
-export const placeMocks = {
+export const placesMock = {
   campinas,
   ubatuba,
   venezia,

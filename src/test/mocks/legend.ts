@@ -1,6 +1,6 @@
-import { ILegend } from 'interfaces'
+import { ILegendLink } from 'interfaces'
 
-export const legendMocks: ILegend[] = [
+export const legendLinksMock: ILegendLink[] = [
   {
     name: 'anything',
     title: 'Anything',

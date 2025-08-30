@@ -1,8 +1,8 @@
 import Link, { LinkProps } from 'next/link'
 
-import { ILegend } from 'interfaces'
+import { ILegendLink } from 'interfaces'
 
-type LegendLinkProps = ILegend &
+type LegendLinkProps = ILegendLink &
   LinkProps & {
     children?: React.ReactNode
   }

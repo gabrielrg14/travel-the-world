@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { placeMocks } from 'test/mocks'
+import { placesMock } from 'test/mocks'
 
 import Map from '.'
 
@@ -20,7 +20,7 @@ describe('<Map />', () => {
   })
 
   it('should render the home marker icon for campinas', () => {
-    render(<Map places={[placeMocks.campinas]} />)
+    render(<Map places={[placesMock.campinas]} />)
 
     const campinasPlace = screen.getByTitle(/campinas/i)
 
@@ -30,7 +30,7 @@ describe('<Map />', () => {
   })
 
   it('should render the car marker icon for ubatuba', () => {
-    render(<Map places={[placeMocks.ubatuba]} />)
+    render(<Map places={[placesMock.ubatuba]} />)
 
     const ubatubaPlace = screen.getByTitle(/ubatuba/i)
 
@@ -40,7 +40,7 @@ describe('<Map />', () => {
   })
 
   it('should render the airplane marker icon for venezia', () => {
-    render(<Map places={[placeMocks.venezia]} />)
+    render(<Map places={[placesMock.venezia]} />)
 
     const veneziaPlace = screen.getByTitle(/venezia/i)
 
@@ -50,7 +50,7 @@ describe('<Map />', () => {
   })
 
   it('should render the target marker icon for cairo', () => {
-    render(<Map places={[placeMocks.cairo]} />)
+    render(<Map places={[placesMock.cairo]} />)
 
     const cairoPlace = screen.getByTitle(/cairo/i)
 
@@ -60,7 +60,7 @@ describe('<Map />', () => {
   })
 
   it('should render the places of campinas, ubatuba, venezia and cairo', () => {
-    render(<Map places={placeMocks.list} />)
+    render(<Map places={placesMock.list} />)
 
     expect(screen.getByTitle(/campinas/i)).toBeInTheDocument()
     expect(screen.getByTitle(/ubatuba/i)).toBeInTheDocument()

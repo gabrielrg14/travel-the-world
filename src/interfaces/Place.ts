@@ -1,4 +1,4 @@
-interface Image {
+interface IGalleryImage {
   url: string
   caption: string
   width: number
@@ -24,5 +24,5 @@ export interface IPlacePage extends IPlace {
     html: string
     text: string
   }
-  gallery: Image[]
+  gallery: IGalleryImage[]
 }
