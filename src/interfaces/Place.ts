@@ -1,11 +1,11 @@
 interface IGalleryImage {
   url: string
-  caption: string
+  caption?: string
   width: number
   height: number
 }
 
-interface IPlace {
+export interface IPlace {
   id: string
   slug: string
   name: string
