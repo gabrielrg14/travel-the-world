@@ -1,5 +1,6 @@
-import * as S from './styles'
 import Image from 'next/image'
+
+import * as S from './styles'
 import { legendIcons, legendLinks } from 'utils'
 import { LegendLink } from 'components'
 

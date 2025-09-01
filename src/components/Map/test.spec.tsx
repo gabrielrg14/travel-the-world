@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import { placesMock } from 'test/mocks'
 
 import Map from '.'
+import { IPlaceMock, placesMock } from 'test/mocks'
 
 describe('<Map />', () => {
   it('should render without any marker', () => {
@@ -19,47 +19,64 @@ describe('<Map />', () => {
     ).toBeInTheDocument()
   })
 
-  it('should render the home marker icon for campinas', () => {
+  it('should render the home marker icon', () => {
     render(<Map places={[placesMock.campinas]} />)
 
-    const campinasPlace = screen.getByTitle(/campinas/i)
+    const homeMarker = screen.getByRole('button', { name: /home marker/i })
 
-    expect(campinasPlace).toBeInTheDocument()
-    expect(campinasPlace).toHaveAttribute('title', 'Campinas, São Paulo')
-    expect(campinasPlace).toHaveAttribute('src', 'images/marker/home.png')
+    expect(homeMarker).toBeInTheDocument()
+    expect(homeMarker).toHaveAttribute('src', 'images/marker/home.png')
   })
 
-  it('should render the car marker icon for ubatuba', () => {
+  it('should render the car marker icon', () => {
     render(<Map places={[placesMock.ubatuba]} />)
 
-    const ubatubaPlace = screen.getByTitle(/ubatuba/i)
+    const carMarker = screen.getByRole('button', { name: /car marker/i })
 
-    expect(ubatubaPlace).toBeInTheDocument()
-    expect(ubatubaPlace).toHaveAttribute('title', 'Ubatuba, São Paulo')
-    expect(ubatubaPlace).toHaveAttribute('src', 'images/marker/car.png')
+    expect(carMarker).toBeInTheDocument()
+    expect(carMarker).toHaveAttribute('src', 'images/marker/car.png')
   })
 
-  it('should render the airplane marker icon for venezia', () => {
+  it('should render the airplane marker icon', () => {
     render(<Map places={[placesMock.venezia]} />)
 
-    const veneziaPlace = screen.getByTitle(/venezia/i)
+    const airplaneMarker = screen.getByRole('button', {
+      name: /airplane marker/i
+    })
 
-    expect(veneziaPlace).toBeInTheDocument()
-    expect(veneziaPlace).toHaveAttribute('title', 'Venezia, Italy')
-    expect(veneziaPlace).toHaveAttribute('src', 'images/marker/airplane.png')
+    expect(airplaneMarker).toBeInTheDocument()
+    expect(airplaneMarker).toHaveAttribute('src', 'images/marker/airplane.png')
   })
 
-  it('should render the target marker icon for cairo', () => {
+  it('should render the target marker icon', () => {
     render(<Map places={[placesMock.cairo]} />)
 
-    const cairoPlace = screen.getByTitle(/cairo/i)
+    const targetMarker = screen.getByRole('button', { name: /target marker/i })
 
-    expect(cairoPlace).toBeInTheDocument()
-    expect(cairoPlace).toHaveAttribute('title', 'Cairo, Egypt')
-    expect(cairoPlace).toHaveAttribute('src', 'images/marker/target.png')
+    expect(targetMarker).toBeInTheDocument()
+    expect(targetMarker).toHaveAttribute('src', 'images/marker/target.png')
   })
 
-  it('should render the places of campinas, ubatuba, venezia and cairo', () => {
+  it.each(placesMock.arrayList)(
+    'should render the correct marker icon for %s',
+    (name, place) => {
+      const placeName = name as string
+      const placeMock = place as IPlaceMock
+
+      render(<Map places={[placeMock]} />)
+
+      const placeMarker = screen.getByTitle(placeName)
+
+      expect(placeMarker).toBeInTheDocument()
+      expect(placeMarker).toHaveAttribute('title', placeName)
+      expect(placeMarker).toHaveAttribute(
+        'src',
+        `images/marker/${placeMock.markerType}.png`
+      )
+    }
+  )
+
+  it('should render the markers of Campinas, Ubatuba, Venezia and Cairo', () => {
     render(<Map places={placesMock.list} />)
 
     expect(screen.getByTitle(/campinas/i)).toBeInTheDocument()

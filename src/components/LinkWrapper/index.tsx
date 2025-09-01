@@ -1,5 +1,6 @@
-import * as S from './styles'
 import Link, { LinkProps } from 'next/link'
+
+import * as S from './styles'
 
 type LinkWrapperProps = LinkProps & {
   title?: string

@@ -71,6 +71,7 @@ const Map = ({ places }: MapProps) => {
               key={`place-${id}`}
               position={[latitude, longitude]}
               title={name}
+              alt={`${name} - ${markerType} marker`}
               icon={getMarkerIcon(markerType)}
               eventHandlers={{
                 click: () => {

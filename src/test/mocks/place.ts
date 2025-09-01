@@ -1,4 +1,8 @@
-const campinas = {
+import { IPlaceMap, IPlacePage } from 'interfaces'
+
+export type IPlaceMock = IPlaceMap & IPlacePage
+
+const campinas: IPlaceMock = {
   id: 'cljevusgs15cu0bkfwxhj2sdk',
   name: 'Campinas, São Paulo',
   slug: 'campinas-sao-paulo',
@@ -16,7 +20,7 @@ const campinas = {
   ]
 }
 
-const ubatuba = {
+const ubatuba: IPlaceMock = {
   id: 'cljeweplm16hx0bkfe6sjlqwg',
   name: 'Ubatuba, São Paulo',
   slug: 'ubatuba-sao-paulo',
@@ -34,7 +38,7 @@ const ubatuba = {
   ]
 }
 
-const venezia = {
+const venezia: IPlaceMock = {
   id: 'clm59ymyt4lex0bm0xzcn4m0j',
   name: 'Venezia, Italy',
   slug: 'venezia-italy',
@@ -52,7 +56,7 @@ const venezia = {
   ]
 }
 
-const cairo = {
+const cairo: IPlaceMock = {
   id: 'clm7sf3d403nn0bj1iku6kif7',
   name: 'Cairo, Egypt',
   slug: 'cairo-egypt',
@@ -75,5 +79,11 @@ export const placesMock = {
   ubatuba,
   venezia,
   cairo,
-  list: [campinas, ubatuba, venezia, cairo]
+  list: [campinas, ubatuba, venezia, cairo],
+  arrayList: [
+    [campinas.name, campinas],
+    [ubatuba.name, ubatuba],
+    [venezia.name, venezia],
+    [cairo.name, cairo]
+  ]
 }
