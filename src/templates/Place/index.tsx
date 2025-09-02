@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo'
 import * as S from './styles'
 import Image from 'next/image'
 import { IPlacePage } from 'interfaces'
-import { LinkWrapper } from 'components'
+import { ImageGallery, LinkWrapper } from 'components'
 import { CloseOutline } from '@styled-icons/evaicons-outline'
 
 type PlaceTemplateProps = {
@@ -70,22 +70,7 @@ export const PlaceTemplate = ({ place }: PlaceTemplateProps) => {
             dangerouslySetInnerHTML={{ __html: place.description?.html || '' }}
           />
 
-          <S.Gallery>
-            {place.gallery?.map((image, index) => (
-              <S.ImageWrapper key={`image-${index}`}>
-                <Image
-                  src={image.url}
-                  title={image.caption || place.name}
-                  alt={image.caption || place.name}
-                  data-testid={place.name}
-                  width={image.width}
-                  height={image.height}
-                  quality={75}
-                />
-                {image.caption && <S.Caption>{image.caption}</S.Caption>}
-              </S.ImageWrapper>
-            ))}
-          </S.Gallery>
+          <ImageGallery name={place.name} gallery={place.gallery} />
         </S.Container>
       </S.Wrapper>
     </>

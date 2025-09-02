@@ -68,6 +68,7 @@ const cairo: IPlaceMock = {
   gallery: [
     {
       url: 'https://sa-east-1.graphassets.com/AZLmvswWRY2aYw5qUkF2Vz/ObUcYLtASqqFVfC8ufeT',
+      caption: 'Sphinx of Giza',
       height: 480,
       width: 640
     }

@@ -1,4 +1,5 @@
 export * from './Analytics'
 export * from './IconLegend'
+export * from './ImageGallery'
 export * from './LegendLink'
 export * from './LinkWrapper'
