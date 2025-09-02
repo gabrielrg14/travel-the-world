@@ -1,4 +1,4 @@
-interface IGalleryImage {
+export interface IGalleryImage {
   url: string
   caption?: string
   width: number
