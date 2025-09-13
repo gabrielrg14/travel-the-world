@@ -10,7 +10,12 @@ const nextConfig = withPWA({
   reactStrictMode: true,
   output: process.env.BUILD_STANDALONE === 'true' ? 'standalone' : undefined,
   images: {
-    domains: ['sa-east-1.graphassets.com']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'sa-east-1.graphassets.com'
+      }
+    ]
   }
 })
 

@@ -38,10 +38,10 @@ const ubatuba: IPlaceMock = {
   ]
 }
 
-const venezia: IPlaceMock = {
+const venice: IPlaceMock = {
   id: 'clm59ymyt4lex0bm0xzcn4m0j',
-  name: 'Venezia, Italy',
-  slug: 'venezia-italy',
+  name: 'Venice, Italy',
+  slug: 'venice-italy',
   markerType: 'airplane',
   location: {
     latitude: 45.4408474,
@@ -78,13 +78,13 @@ const cairo: IPlaceMock = {
 export const placesMock = {
   campinas,
   ubatuba,
-  venezia,
+  venice,
   cairo,
-  list: [campinas, ubatuba, venezia, cairo],
+  list: [campinas, ubatuba, venice, cairo],
   arrayList: [
     [campinas.name, campinas],
     [ubatuba.name, ubatuba],
-    [venezia.name, venezia],
+    [venice.name, venice],
     [cairo.name, cairo]
   ]
 }

@@ -14,8 +14,8 @@ describe('Place', () => {
   })
 
   it('navigate to a place with "Visited by airplane" marker', () => {
-    const placeTitle = 'Venezia, Italy'
-    cy.accessPlaceOnTheMap(placeTitle, 'venezia-italy', 1, 600, 0)
+    const placeTitle = 'Venice, Italy'
+    cy.accessPlaceOnTheMap(placeTitle, 'venice-italy', 1, 600, 0)
     cy.validatePlacePage(placeTitle, 'airplane marker')
   })
 

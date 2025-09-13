@@ -38,7 +38,7 @@ describe('<Map />', () => {
   })
 
   it('should render the airplane marker icon', () => {
-    render(<Map places={[placesMock.venezia]} />)
+    render(<Map places={[placesMock.venice]} />)
 
     const airplaneMarker = screen.getByRole('button', {
       name: /airplane marker/i
@@ -76,12 +76,12 @@ describe('<Map />', () => {
     }
   )
 
-  it('should render the markers of Campinas, Ubatuba, Venezia and Cairo', () => {
+  it('should render the markers of Campinas, Ubatuba, Venice and Cairo', () => {
     render(<Map places={placesMock.list} />)
 
     expect(screen.getByTitle(/campinas/i)).toBeInTheDocument()
     expect(screen.getByTitle(/ubatuba/i)).toBeInTheDocument()
-    expect(screen.getByTitle(/venezia/i)).toBeInTheDocument()
+    expect(screen.getByTitle(/venice/i)).toBeInTheDocument()
     expect(screen.getByTitle(/cairo/i)).toBeInTheDocument()
     expect(screen.getAllByRole('button', { name: /marker/i })).toHaveLength(4)
   })

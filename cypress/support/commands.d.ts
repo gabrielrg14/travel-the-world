@@ -42,7 +42,7 @@ declare namespace Cypress {
      * @param title string - The title of the place you want to validate
      * @param markerAlt string - The alt of the marker you want to validate
      *
-     * @example cy.validatePlacePage('Venezia, Italy', 'travel icon') // Validates that the place page has the title, marker and at least one image
+     * @example cy.validatePlacePage('Venice, Italy', 'travel icon') // Validates that the place page has the title, marker and at least one image
      */
     validatePlacePage(
       title: string,
